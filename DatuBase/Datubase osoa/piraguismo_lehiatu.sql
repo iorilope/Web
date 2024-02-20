@@ -40,7 +40,7 @@ CREATE TABLE `lehiatu` (
 
 LOCK TABLES `lehiatu` WRITE;
 /*!40000 ALTER TABLE `lehiatu` DISABLE KEYS */;
-INSERT INTO `lehiatu` VALUES ('01234567X',1,'01:20:12'),('12345678A',1,'01:24:33'),('45678901D',2,'01:02:45');
+INSERT INTO `lehiatu` VALUES ('01234567X',1,'01:20:12'),('01234567X',2,'01:00:10'),('12345678A',1,'01:24:33'),('45678901D',2,'01:02:45');
 /*!40000 ALTER TABLE `lehiatu` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!50003 SET @saved_cs_client      = @@character_set_client */ ;
@@ -52,9 +52,10 @@ UNLOCK TABLES;
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
 /*!50003 SET sql_mode              = 'ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_ENGINE_SUBSTITUTION' */ ;
 DELIMITER ;;
-/*!50003 CREATE*/ /*!50017 DEFINER=`root`@`localhost`*/ /*!50003 TRIGGER `lehiatu_AFTER_INSERT` AFTER INSERT ON `lehiatu` FOR EACH ROW UPDATE piraguista
-BEGIN
-	SET Txapelketa_kantitatea=Txapelketa_kantitatea+1 where piraguista_nan = new.Piraguista_Nan; */;;
+/*!50003 CREATE*/ /*!50017 DEFINER=`root`@`localhost`*/ /*!50003 TRIGGER `lehiatu_AFTER_INSERT` AFTER INSERT ON `lehiatu` FOR EACH ROW BEGIN
+UPDATE piraguista
+	SET Txapelketa_kantitatea=Txapelketa_kantitatea+1 where Nan = new.Piraguista_Nan;
+END */;;
 DELIMITER ;
 /*!50003 SET sql_mode              = @saved_sql_mode */ ;
 /*!50003 SET character_set_client  = @saved_cs_client */ ;
@@ -70,4 +71,4 @@ DELIMITER ;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2024-02-20 13:19:39
+-- Dump completed on 2024-02-20 13:29:58

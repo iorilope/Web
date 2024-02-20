@@ -16,37 +16,6 @@
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
--- Temporary view structure for view `piraguisten_taldea_gizonak`
---
-
-DROP TABLE IF EXISTS `piraguisten_taldea_gizonak`;
-/*!50001 DROP VIEW IF EXISTS `piraguisten_taldea_gizonak`*/;
-SET @saved_cs_client     = @@character_set_client;
-/*!50503 SET character_set_client = utf8mb4 */;
-/*!50001 CREATE VIEW `piraguisten_taldea_gizonak` AS SELECT 
- 1 AS `Piraguista`,
- 1 AS `Taldea`*/;
-SET character_set_client = @saved_cs_client;
-
---
--- Final view structure for view `piraguisten_taldea_gizonak`
---
-
-/*!50001 DROP VIEW IF EXISTS `piraguisten_taldea_gizonak`*/;
-/*!50001 SET @saved_cs_client          = @@character_set_client */;
-/*!50001 SET @saved_cs_results         = @@character_set_results */;
-/*!50001 SET @saved_col_connection     = @@collation_connection */;
-/*!50001 SET character_set_client      = utf8mb4 */;
-/*!50001 SET character_set_results     = utf8mb4 */;
-/*!50001 SET collation_connection      = utf8mb4_0900_ai_ci */;
-/*!50001 CREATE ALGORITHM=UNDEFINED */
-/*!50013 DEFINER=`root`@`localhost` SQL SECURITY DEFINER */
-/*!50001 VIEW `piraguisten_taldea_gizonak` AS select `piraguista`.`Izena` AS `Piraguista`,`taldea`.`Izena` AS `Taldea` from (`piraguista` join `taldea` on((`piraguista`.`Taldea_Kodea` = `taldea`.`Kodea`))) where (`piraguista`.`Generoa` = 'G') */;
-/*!50001 SET character_set_client      = @saved_cs_client */;
-/*!50001 SET character_set_results     = @saved_cs_results */;
-/*!50001 SET collation_connection      = @saved_col_connection */;
-
---
 -- Dumping events for database 'piraguismo'
 --
 
@@ -160,4 +129,4 @@ DELIMITER ;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2024-02-20 13:19:39
+-- Dump completed on 2024-02-20 13:29:58
