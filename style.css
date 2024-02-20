@@ -26,17 +26,19 @@ h1, h2, h3 {
 .col-6 {
     width:50%;
     display: inline-table;
+    
 }
 
 .col-7 {
     width: 60%;
-    display: inline-table;
+    display: inline-block;
 }
 
 .sec-heading {
     text-align: center;
     font-size: 40px;
-    padding: 1.5em 0;
+    padding: 0.5em 0;
+   
     margin: 0;
 }
 
@@ -44,7 +46,8 @@ p {
     font-family: lato;
     color: #717171;
     line-height: 1.5;
-    text-align: justify
+    text-align: justify;
+    flex-wrap: wrap;
 }
 
 #topHeader {
@@ -271,7 +274,7 @@ nav {
 }
 
     .slider img {
-        height: 300px;
+        height: 400px;
     }
 
     .slider .slide-text {
@@ -825,7 +828,7 @@ footer {
     }
 
     .sec-heading {
-        padding:1em 0;
+        padding:0em 0;
     }
 
     #services ul li {
@@ -1172,7 +1175,7 @@ footer {
     }
 
     .sec-heading {
-        padding: 1em 0;
+        padding: 0%;
     }
 
     #delivery img {
