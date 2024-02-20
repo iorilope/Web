@@ -25,6 +25,7 @@ h3 {
 }
 
 .col-6 {
+<<<<<<< HEAD
   width: 50%;
   display: inline-table;
 }
@@ -48,6 +49,32 @@ p {
   line-height: 1.5;
   text-align: justify;
   flex-wrap: wrap;
+=======
+    width:50%;
+    display: inline-table;
+    
+}
+
+.col-7 {
+    width: 60%;
+    display: inline-block;
+}
+
+.sec-heading {
+    text-align: center;
+    font-size: 40px;
+    padding: 0.5em 0;
+   
+    margin: 0;
+}
+
+p {
+    font-family: lato;
+    color: #717171;
+    line-height: 1.5;
+    text-align: justify;
+    flex-wrap: wrap;
+>>>>>>> 138608eef2686e4125d1fceaff981cbb9764eda1
 }
 
 #topHeader {
@@ -276,9 +303,15 @@ nav {
   background-color: #f6f6f6;
 }
 
+<<<<<<< HEAD
 .slider img {
   height: 400px;
 }
+=======
+    .slider img {
+        height: 400px;
+    }
+>>>>>>> 138608eef2686e4125d1fceaff981cbb9764eda1
 
 .slider .slide-text {
   float: left;
@@ -926,11 +959,201 @@ a#gotop {
     margin-top: 0px;
   }
 
+<<<<<<< HEAD
   .col-3 {
     display: block;
     width: 100%;
     padding-bottom: 1em;
   }
+=======
+        .mainMenu a.active:first-child {
+            border-top: 1px solid;
+            margin-top: 18px;
+            padding-top: 30px;
+        }
+
+            .mainMenu a span {
+                color: #fff;
+            }
+            .mainMenu a:after {
+                display:none;
+            }
+
+    .brand-logos div {
+        overflow-x: auto;
+        overflow-y: hidden;        
+    }
+
+    #delivery .col-5 {
+        display: block;
+        float: none;
+        width: 100%;
+        text-align: center;
+    }
+
+    #delivery .col-7 {
+        width: 100%;
+        display: block;
+        text-align: center;
+    }
+    .col-3 {
+        display: block;
+        width: 100%;
+        padding-bottom: 1em;
+    }
+    .col-3#newsletter {
+        width: 100%;
+        position: relative;
+        padding-bottom: 0;
+    }
+
+    .social-1 {
+        display: none !important;
+    }
+
+    .social-2 {
+        display: inline-table;
+        position: absolute;
+        top: 7em;
+        padding-bottom: 1.5em;
+        width: 100%;
+    }
+
+    #address {
+        margin-top: 8em;
+    }
+
+    #newsletter #address li i {
+        width: auto;
+    }
+
+    #newsletter #address li div {
+        font-size: 14px;
+        width: auto;
+        text-align: -webkit-auto;
+        float: none;
+        line-height: 2;
+        display: inline-block;
+        padding: 10px 0 15px;
+    }
+
+    #newsletter #address li div:last-child {
+        padding-bottom: 0;
+    }
+
+    #newsletter #address li:not(:first-child) {
+        padding: 20px 0 0;
+    }
+}
+
+/* iPads (portrait)----------- */  
+@media only screen and (min-width : 768px) and (max-width : 1024px) and (orientation : portrait) {
+
+    section {
+        padding: 0 3em 3em;
+    }
+
+    .sec-heading {
+        padding:0em 0;
+    }
+
+    #services ul li {
+        width: 30%;
+    }
+
+    #delivery img {
+        height: 230px;
+    }
+
+    #highlights {
+        display: inline-block;
+    }
+
+    .slider img{
+        height: 220px;
+    }
+
+    .slider .slide-text div {
+        width: 85%;
+        margin-top: 0px;
+    }
+
+    footer {
+        padding-right:3em;
+        padding-left:3em;
+    }
+
+    .col-3 {
+        display: block;
+        width: 100%;
+        padding-bottom: 1em;
+    }
+}
+
+/* iPads (landscape) ----------- */  
+@media only screen and (min-width : 768px) and (max-width : 1024px) and (orientation : landscape) {  
+    
+    section {
+        padding-bottom: 3em;
+    }
+
+    .sec-heading {
+        padding:1em 0;
+    }
+    
+    #intro {
+        padding-top: 4em;
+        padding-bottom: 3em;
+    }
+    
+    #development-img img {
+        height: 290px;
+    }
+    
+    #intro-info {
+        margin-top: 4.8%;
+    }
+        
+        #intro-info h1 {
+            font-size: 23px;
+            margin: 0px 0 20px;
+        }
+
+        #intro-info span {
+            font-size: 20px;
+            padding: 0 0 45px;
+        }
+
+    .sec-heading {
+        font-size: 30px;
+    }
+
+    #services ul li {
+        width: 30%;
+    }
+
+    #services ul li .fas, #services ul li .fab {
+        font-size: 60px;
+    }
+
+    .slider img {
+        height: 210px;
+    }
+
+    #highlights, #success-story {
+        display: inline-block;
+    }
+
+    .slider .slide-text div {
+        margin-top: 0px;
+    }
+
+    .col-3 {
+        display: block;
+        width: 100%;
+        padding-bottom: 1em;
+    }
+>>>>>>> 138608eef2686e4125d1fceaff981cbb9764eda1
 }
 
 /* Mini Tablet and Big Mobile */
@@ -1181,9 +1404,15 @@ a#gotop {
     padding: 0 1em 3em;
   }
 
+<<<<<<< HEAD
   .sec-heading {
     padding: 0%;
   }
+=======
+    .sec-heading {
+        padding: 0%;
+    }
+>>>>>>> 138608eef2686e4125d1fceaff981cbb9764eda1
 
   #delivery img {
     height: 230px;
