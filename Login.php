@@ -62,24 +62,25 @@
                 </div>
             </div>
 
-            <form>
+            <form method="post" class="form" action="check_login.php">
                 <div class="mb-3">
-                    
-                    <label for="exampleInputEmail1" class="form-label">Email</label>
-                    <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+
+                    <label for="InputEmail" class="form-label">Email</label>
+                    <input type="email" required class="form-control" id="InputEmail" name="inputemail"
+                        autocomplete="email" aria-describedby="emailHelp">
                     <div id="emailHelp" class="form-text">Ez dugu zure email-a inorrekin konpartituko.</div>
 
                 </div>
                 <div class="mb-3">
 
-                    <label for="exampleInputPassword1" class="form-label">Pasahitza</label>
-                    <input type="password" class="form-control" id="exampleInputPassword1">
+                    <label for="InputPassword1" class="form-label">Pasahitza</label>
+                    <input type="password" required class="form-control" id="InputPassword">
 
                 </div>
 
                 <div class="d-flex align-items-center">
 
-                    <button type="submit" class="btn btn-primary me-auto">Bidali</button>
+                    <button type="submit" name="submit" class="btn btn-primary me-auto">Bidali</button>
 
                 </div>
             </form>
@@ -108,15 +109,15 @@
         </div>
 
         <div id="address">
-        <ul>
-            <li>
-                <i class="far fa-building"></i>
-                <div>Tolosa<br />
-                    Zumardi auzoa
-                </div>
-            </li>
+            <ul>
+                <li>
+                    <i class="far fa-building"></i>
+                    <div>Tolosa<br />
+                        Zumardi auzoa
+                    </div>
+                </li>
 
-        </ul>
+            </ul>
         </div>
 
     </footer>
