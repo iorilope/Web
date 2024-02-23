@@ -73,7 +73,7 @@
                 <div class="mb-3">
 
                     <label for="InputPassword1" class="form-label">Pasahitza</label>
-                    <input type="password" required class="form-control" id="InputPassword">
+                    <input type="password" required class="form-control" id="InputPassword" name="inpuPassword">
 
                 </div>
 
