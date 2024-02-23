@@ -3,13 +3,9 @@
 session_start();
 require 'connection.php';
 //Taldeak KONTSULTATU
-$taldeak = $conn->prepare("select Izena, Herria from taldea");
-$taldeak->execute();
-$taldeak = $taldeak->fetchAll();
-
-
-
-
+$piraguistak = $conn->prepare("select * from piraguista");
+$piraguistak->execute();
+$piraguistak = $piraguistak->fetchAll();
 
 ?>
 <!DOCTYPE html>
@@ -49,13 +45,35 @@ $taldeak = $taldeak->fetchAll();
         <a href="Index_Arrunta.php"><span>Hasiera</span></a>
         <a href="Egutegia.html"><span>Egutegia</span></a>
         <a href="Taldeak.php"><span>Taldeak</span></a>
+        <a href="piraguistak.php"><span>Piraguistak</span></a>
         <a href="Txapelketak.php"><span>Txapelketak</span></a>
         <a href="Klasifikazioa.php"><span>Klasifikazioa</span></a>
-        <a href="logout.php"><span>Saioa itxi</span></a>
-        <a href="Login.php">Saioa hasi</a>
+        <a href="logout.php">Saioa Itxi</a>
 
     </div class="mainMenu">
 </nav>
-    
+<section id="Piraguistak"> 
+    <div id="new-taldea-info"> 
+        <span></span>
+        <table class="styled-table">
+            <thead>
+                <tr>
+                    <th align="center">Izena</th>
+                    <th>Abizena</th>
+                    <th>Generoa</th>
+                    <th>Taldea</th>
+                </tr>
+            </thead>
+            <tbody>
+                <?php foreach ($taldeak as $index => $taldea) :?>
+                    <tr>
+                        <td align="center"><?php echo $taldea["Izena"] ?></td>
+                        <td><?php echo $taldea["Herria"] ?></td>
+                    </tr> 
+                <?php endforeach; ?>
+            </tbody>
+        </table>
+    </div>
+</section>
 </body>
 </html>

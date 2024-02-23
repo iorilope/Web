@@ -48,10 +48,10 @@ $taldeak = $taldeak->fetchAll();
         <a href="Index_Arrunta.php"><span>Hasiera</span></a>
         <a href="Egutegia.html"><span>Egutegia</span></a>
         <a href="Taldeak.php"><span>Taldeak</span></a>
+        <a href="piraguistak.php"><span>Piraguistak</span></a>
         <a href="Txapelketak.php"><span>Txapelketak</span></a>
         <a href="Klasifikazioa.php"><span>Klasifikazioa</span></a>
-        <a href="logout.php"><span>Saioa itxi</span></a>
-        <a href="Login.php">Saioa hasi</a>
+        <a href="logout.php">Saioa Itxi</a>
 
     </div class="mainMenu">
 </nav>
