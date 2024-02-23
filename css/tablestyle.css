@@ -19,3 +19,13 @@
 .styled-table tbody tr:hover {
     background-color: #f5f5f5;
 }
+#new-section { /* Updated the id in the CSS */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh; /* Adjust the height as needed */
+}
+
+#new-section-info { /* Updated the id in the CSS */
+    text-align: center;
+}

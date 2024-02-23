@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <?php
 session_start();
 require 'connection.php';
@@ -55,28 +56,6 @@ $taldeak = $taldeak->fetchAll();
 
     </div class="mainMenu">
 </nav>
-</header>
-<section id="Taldeak"> 
-    <div id="new-taldea-info"> 
-        <span></span>
-        <table class="styled-table">
-            <thead>
-                <tr>
-                    <th align="center">Izena</th>
-                    <th>Herria</th>
-                </tr>
-            </thead>
-            <tbody>
-                <?php foreach ($taldeak as $index => $taldea) :?>
-                    <tr>
-                        <td align="center"><?php echo $taldea["Izena"] ?></td>
-                        <td><?php echo $taldea["Herria"] ?></td>
-                    </tr> 
-                <?php endforeach; ?>
-            </tbody>
-        </table>
-    </div>
-</section>
-
+    
 </body>
 </html>
