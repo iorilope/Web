@@ -1,5 +1,15 @@
 <?php
 session_start();
+require 'connection.php';
+//Taldeak KONTSULTATU
+$taldeak = $conn->prepare("select Izena, Herria from taldea");
+$taldeak->execute();
+$taldeak = $taldeak->fetchAll();
+
+
+
+
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -8,9 +18,8 @@ session_start();
     <meta charset="UTF-8">
     <title>Urpera Piraguismoa</title>
     <link rel="stylesheet" href="style.css">
-    <?php 
-
-     require 'connection.php';?>
+    <link rel="stylesheet" href="./css/tablestyle.css">
+ 
 </head>
 <body>
 <head>
@@ -47,5 +56,35 @@ session_start();
     </div class="mainMenu">
 </nav>
 </header>
+<section id="intro">
+    <div id="intro-info">
+        <div>
+            <div id="intro-tag-btn">
+                <span></span>
+                 <table class="styled-table">
+                    <thead>
+                        <tr>
+                            <th align="center">Izena</th>
+                            <th>Herria</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <?php foreach ($taldeak as $index => $taldea) :?>
+                            <tr>
+                                <td align="center"><?php echo $taldea["Izena"] ?></td>
+                                <td><?php echo $taldea["Herria"] ?></td>
+                            </tr> 
+                        <?php endforeach; ?>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <div id="development-img">
+        <h4>Piraguismo Taldeak</h4>
+    </div>
+</section>
+
 </body>
 </html>
