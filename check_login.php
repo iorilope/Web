@@ -1,4 +1,5 @@
 <?php
+session_start();
 // Verificar si se ha enviado el formulario
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Obtener las credenciales del formulario
@@ -11,12 +12,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $query = "SELECT * FROM erabiltzailea WHERE Email='$email' AND Pasahitza='$password'";
     $result = $conn->query($query);
 
+  
     // Verificar el resultado de la consulta
     if ($result->rowCount() > 0) {
         // Usuario autenticado correctamente
         $row = $result->fetch(PDO::FETCH_ASSOC);
         $userType = $row["Mota"];
-
+        $_SESSION["inputemail"] = $email;
         if ($userType == "Admin") {
             // Usuario Admin
             // Puedes redirigir a la página de administrador o realizar otras acciones
@@ -35,6 +37,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     }
 
     // Cerrar la conexión a la base de datos
-    $conn=null;
+    
 }
 ?>
