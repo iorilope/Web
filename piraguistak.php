@@ -3,6 +3,11 @@
 session_start();
 require 'connection.php';
 //Taldeak KONTSULTATU
+$taldekode = $conn->prepare("select Taldea_Kodea from piraguista");
+$taldekode->execute();
+$taldekode = $taldekode->fetchAll();
+
+
 $piraguistak = $conn->prepare("select * from piraguista");
 $piraguistak->execute();
 $piraguistak = $piraguistak->fetchAll();
@@ -61,14 +66,16 @@ $piraguistak = $piraguistak->fetchAll();
                     <th align="center">Izena</th>
                     <th>Abizena</th>
                     <th>Generoa</th>
-                    <th>Taldea</th>
+                    <th>Txapelketa Kantitatea</th>
                 </tr>
             </thead>
             <tbody>
-                <?php foreach ($taldeak as $index => $taldea) :?>
+                <?php foreach ($piraguistak as $index => $piraguista) :?>
                     <tr>
-                        <td align="center"><?php echo $taldea["Izena"] ?></td>
-                        <td><?php echo $taldea["Herria"] ?></td>
+                        <td align="center"><?php echo $piraguista["Izena"] ?></td>
+                        <td><?php echo $piraguista["Abizena"] ?></td>
+                        <td><?php echo $piraguista["Generoa"] ?></td>
+                        <td><?php echo $piraguista["Txapelketa_kantitatea"] ?></td>
                     </tr> 
                 <?php endforeach; ?>
             </tbody>
