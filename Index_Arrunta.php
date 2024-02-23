@@ -43,6 +43,7 @@ session_start();
         <a href="Index_Arrunta.php"><span>Hasiera</span></a>
         <a href="Egutegia.html"><span>Egutegia</span></a>
         <a href="Login.php">Saioa hasi</a>
+        <a href="logout.php">Saioa itxi</a>
 
     </div class="mainMenu">
 </nav>
