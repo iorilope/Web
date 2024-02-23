@@ -33,14 +33,14 @@ session_start();
 </ul>
 
 <nav>
-<span class="logo">Erabiltzailea:  <?php echo ($_SESSION["inputemail"]) ? $_SESSION["inputemail"] : "Not logged in"; ?></span>
+<span class="logo">Erabiltzailea:  <?php echo ($_SESSION["inputemail"]) ? $_SESSION["inputemail"] : "Ez da saioa hasi"; ?></span>
     <div class="menu-btn-3" onclick="menuBtnFunction(this)">
         <span></span>
     </div>
 
     <div class="mainMenu">
 
-        <a href="index.html"><span>Hasiera</span></a>
+        <a href="indexAdmin.php"><span>Hasiera</span></a>
         <a href="Egutegia.html"><span>Egutegia</span></a>
         <a href="Login.php">Saioa hasi</a>
 
