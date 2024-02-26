@@ -104,5 +104,7 @@ $txapelketak = $txapelketakQuery->fetchAll();
         </section>
        
 </body>
-
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="ScriptIT.js"></script>
+    <script src="./script.js"></script>
 </html>

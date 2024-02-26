@@ -4,20 +4,10 @@ require 'connection.php';
 
 
 
-// // Piraguistak KONTSULTATU
-$KlasifikazioaQuery = $conn->prepare("SELECT txapelketa.*,modalitatea.Mota, parte_hartu.Denbora AS ParteHartuDenbora, taldea.Izena AS TaldeaIzena
-                                    FROM txapelketa
-                                    LEFT JOIN modalitatea ON txapelketa.Modalitatea_ID_M = modalitatea.ID_M
-                                    LEFT JOIN parte_hartu ON txapelketa.ID_T = parte_hartu.Txapelketa_ID_T
-                                    LEFT JOIN taldea ON parte_hartu.Taldea_Kodea = taldea.Kodea");
-$KlasifikazioaQuery->execute();
-$Klasifikazioak = $KlasifikazioaQuery->fetchAll();
-
 
 ?>
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
 
     <meta charset="UTF-8">
@@ -64,9 +54,47 @@ $Klasifikazioak = $KlasifikazioaQuery->fetchAll();
 
             </div class="mainMenu">
         </nav>
-       
+        <section id="profila">
+            <div id="new-taldea-info">
+                <span></span>
+                <h2></h2>
+                <?php
+                /*MySQL*/
+        $servername = "localhost";
+        $username = "root";
+        $password = "";
+        $dbname = "piraguismo";
+
+        // Create connection
+        $conn = new mysqli($servername, $username, $password, $dbname);
+
+         // Check connection
+        if ($conn->connect_error) {
+          die("Connection failed: " . $conn->connect_error);
+        }
+        /*Hemen, gure datu basearekin konexioa sortzen dugu, ondoren, bertako datuak atzitu ahal izateko*/
+             $izena  =	$_POST['izen_berria'];
+    	$email  =	$_SESSION["inputemail"];
+
+    	/*Hemen, aurreko orrian erabilitako aldagaiak ekartzen ditugu eta hauek beste aldagai batean gordetzen ditugu*/
+	
+    	$Aldaketa="UPDATE erabiltzailea set Izena='$izena' WHERE Email='$email'";
+
+    	/*Hemen, "ikasgaiak" taulan izena aldatzeko funtzio bat sortzen dugu */
+
+
+    	if (mysqli_query($conn, $Aldaketa)) {
+      		echo "<h2>Erabiltzailea eguneratu da</h2>";
+		} 
+		else {
+      		echo "Error: " . $Aldaketa . "<br>" . mysqli_error($conn);
+		}
+
+	
+
+    ?>
+            	
+	
+        </section>
 </body>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-    <script src="ScriptIT.js"></script>
-    <script src="./script.js"></script>
 </html>

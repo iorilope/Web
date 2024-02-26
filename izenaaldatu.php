@@ -2,22 +2,19 @@
 session_start();
 require 'connection.php';
 
+$inputEmail = filter_var($_SESSION["inputemail"], FILTER_SANITIZE_EMAIL);
 
 
-// // Piraguistak KONTSULTATU
-$KlasifikazioaQuery = $conn->prepare("SELECT txapelketa.*,modalitatea.Mota, parte_hartu.Denbora AS ParteHartuDenbora, taldea.Izena AS TaldeaIzena
-                                    FROM txapelketa
-                                    LEFT JOIN modalitatea ON txapelketa.Modalitatea_ID_M = modalitatea.ID_M
-                                    LEFT JOIN parte_hartu ON txapelketa.ID_T = parte_hartu.Txapelketa_ID_T
-                                    LEFT JOIN taldea ON parte_hartu.Taldea_Kodea = taldea.Kodea");
-$KlasifikazioaQuery->execute();
-$Klasifikazioak = $KlasifikazioaQuery->fetchAll();
+$profilakquery = $conn->prepare("SELECT * FROM erabiltzailea WHERE Email = :inputEmail");
+$profilakquery->bindParam(':inputEmail', $inputEmail, PDO::PARAM_STR);
+$profilakquery->execute();
+$profilakresult = $profilakquery->fetchAll();
+
 
 
 ?>
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
 
     <meta charset="UTF-8">
@@ -64,9 +61,25 @@ $Klasifikazioak = $KlasifikazioaQuery->fetchAll();
 
             </div class="mainMenu">
         </nav>
-       
+        <section id="profila">
+            <div id="new-taldea-info">
+                <span></span>
+                <h2>Profila editatu</h2>
+
+                <form method="POST" action="izena2.php">
+    Erabiltzaile Izena:
+    <select type="text" name="fizena">
+        <?php foreach ($profilakresult as $index => $profila) : ?>
+            <option value='<?php echo $profila["Izena"]; ?>'>
+                <?php echo $profila["Izena"]; ?>
+            </option>
+        <?php endforeach; ?>
+    </select><br>
+    Izen berria: <input type="text" name="izen_berria"><br>
+    <input type="submit" />
+</form>
+            	
+	
+        </section>
 </body>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-    <script src="ScriptIT.js"></script>
-    <script src="./script.js"></script>
 </html>
