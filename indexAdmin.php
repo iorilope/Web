@@ -3,59 +3,181 @@ session_start();
 ?>
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
 
     <meta charset="UTF-8">
     <title>Urpera Piraguismoa</title>
     <link rel="stylesheet" href="style.css">
-    <?php 
+    <?php
 
-     require 'connection.php';?>
+    require 'connection.php'; ?>
 </head>
+
 <body>
-<head>
 
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta http-equiv="X-UA-Compatible" content="ie=edge">
-<link href="https://fonts.googleapis.com/css?family=Lato|Nanum+Gothic:700|Raleway&display=swap"
-    rel="stylesheet">
-<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.9.0/css/all.css" rel="stylesheet">
-<title>Urpera Kluba</title>
+    <head>
 
-</head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <link href="https://fonts.googleapis.com/css?family=Lato|Nanum+Gothic:700|Raleway&display=swap"
+            rel="stylesheet">
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.9.0/css/all.css" rel="stylesheet">
+        <title>Urpera Kluba</title>
 
-<header id="topHeader">
-<ul id="topInfo">
+    </head>
 
-    <li>info@urpera.com</li>
-
-</ul>
-
-<nav>
-<span class="logo">Erabiltzailea:  <?php echo ($_SESSION["inputemail"]) ? $_SESSION["inputemail"] : "Ez da saioa hasi"; ?></span>
-    <div class="menu-btn-3" onclick="menuBtnFunction(this)">
-        <span></span>
-    </div>
-
-    <div class="mainMenu">
-
-        <a href="indexAdmin.php"><span>Hasiera</span></a>
-        <a href="Egutegia.html"><span>Egutegia</span></a>
-        <a href="logout.php">Saioa Itxi</a>
-       
-
-    </div class="mainMenu">
-</nav>
-</header>
-
-<?php
+    <header id="topHeader">
 
 
+        <nav>
+            <span class="logo">Erabiltzailea:
+                <?php echo ($_SESSION["inputemail"]) ? $_SESSION["inputemail"] : "Not logged in"; ?>
+            </span>
+            <div class="menu-btn-3" onclick="menuBtnFunction(this)">
+                <span></span>
+            </div>
 
+            <div class="mainMenu">
 
+            <a href="Index_Arrunta.php"><span>Hasiera</span></a>
+                <a href="Egutegia.html"><span>Egutegia</span></a>
+                <a href="Taldeak.php"><span>Taldeak</span></a>
+                <a href="piraguistak.php"><span>Piraguistak</span></a>
+                <a href="Txapelketak.php"><span>Txapelketak</span></a>
+                <a href="Klasifikazioa.php"><span>Klasifikazioa</span></a>
+                <a href="ProfilArrunta.php"><span>Profila</span></a>
+                <a href="logout.php">Saioa Itxi</a>
 
+            </div class="mainMenu">
+        </nav>
+    </header>
 
-?>
+    <section id="intro">
+        <div id="intro-info">
+            <div>
+                <h1>Tolosako piraguismoko Urpera Kirol Elkartea</h1>
+                <div id="intro-tag-btn">
+                    <span></span>
+                    <a href="https://mail.google.com/mail/?view=cm&fs=1&tf=1&to=ioritzlope45@gmail.com" target="_blank"
+                        class="brand-btn">Kontaktuan Jarri</a>
+                </div>
+            </div>
+        </div>
+
+        <div id="development-img">
+            <img src="images/5411421.jpg" alt="Urpera Kirol Elkartea" title="Urpera Kirol Elkartea" />
+        </div>
+    </section>
+
+    <section id="success-story">
+        <h1 class="sec-heading">Gure historia</h1>
+
+        <div class="slider">
+            <div class="col-6 slide-text">
+                <div>
+
+                    <h2>Urpera</h2>
+                    <p>
+                        Urpera Piraguismo Elkartea: Historia
+                        Urpera Piraguismo Elkartea 2005ean sortu zen piraguismoa maite zuen lagun talde baten
+                        eskutik. Hasieratik, klubak
+                        kirol hau Gasteizen eta inguruetan sustatzea izan du helburu, baita urarekiko eta
+                        naturarekiko grina sustatzea ere.
+                        Urte hauetan zehar, Urpera Piraguismo Elkarteak hazkunde nabarmena izan du, bere jarduera
+                        eskaintza zabalduz eta
+                        eskualdeko erreferentziazko klub bezala sendotuz.
+                        Klubaren historiako mugarri garrantzitsu batzuk:
+
+                    </p>
+
+                    <p>
+                        2005: Piraguismoa maite zuen lagun talde batek kluba sortu zuen.
+                        2008: Klubak lehiaketa ofizial batean lehen aldiz parte hartu zuen.
+                        2010: Piraguismoko lehen txapelketaren antolaketa Gasteizen.
+                        2012: Haurrentzako piraguismo-eskola sortu zen.
+                        2015: Klubeko piraguen flota handitzea.
+                        2018: Klubaren egoitza berriaren inaugurazioa.
+                        2020: Klubaren 15. urteurrenaren ospakizuna.
+
+                    </p>
+
+                    <a href="https://mail.google.com/mail/?view=cm&fs=1&tf=1&to=ioritzlope45@gmail.com" target="_blank"
+                        class="brand-btn">Kontaktuan Jarri</a>
+                </div>
+            </div>
+
+            <div class="col-6 slide-img">
+                <img src="images/kayak-mujer-kayak-chicas-remando-agua.jpg" />
+            </div>
+
+        </div>
+    </section>
+    <section id="revenue" class="brand-logos">
+
+        <h1 class="sec-heading">Azken albisteak</h1>
+        <div>
+
+            <a><img src="images/logo_PIBA_400x400.png" alt="Badajoz Kluba" title="Jokalari berria">
+                <p>Badajozeko klubak Christian Romero jokalaria lortu du azken txapelketarako</p>
+            </a>
+            <a><img src="images/Logo-Talak-N.webp" alt="Talak Kluba" title="Talak Irabazi">
+                <p>Teresa Portelak seigarren domina lortu du Europako Txapelketa batean</p>
+            </a>
+            <a><img src="images/tinywow_Club-Getxo-Kayaka_48270549.png" alt="Getxoko Kluba" title="Notizia onak">
+                <p> Espainian piraguismoarentzako errendimendu handiko zentro berri bat eraiki da. </p>
+            </a>
+            <a><img src="images/logo_web_astorres2x.png" alt="Astorres Kluba" title="Espainiako Selekzioa">
+                <p>Amador Barranco Espainiako selekzioan jokatzen egongo da hurrengo hilabetean</p>
+            </a>
+            <a><img src="images/cropped-CabeceraWeb2.jpg" alt="Cordobako Kluba" title="Piragua berriak">
+                <p>Piragua mota berri bat garatzen da, arinagoa eta erresistenteagoa.Hurrengo hilabetean ikusiko dugu.
+                </p>
+            </a>
+            <a><img src="images/descarga.jfif" alt="Aranjuezeko Kluba" title="Vr entrenamendua">
+                <p>Piraguistentzako entrenamendu-sistema birtual bat ezartzen da.</p>
+            </a>
+            <a><img src="images/Logo-2017-oxio-web.jpg" alt="Oxio Kluba" title="ONG ekin lanean">
+                <p>Piraguistak GKE baterako dirua biltzeko mobilizatzen dira.</p>
+            </a>
+            <a><img src="images/logoRURALSPORT-png.png" alt="Desgaituak" title="Pertsona desgaituak">
+                <p>Piraguismo-programa bat sortu da desgaitasuna duten pertsonentzat.</p>
+            </a>
+        </div>
+    </section>
+
+    <footer>
+        <div>
+            <span class="logo">Urpera</span>
+        </div>
+
+        <div class="col-3">
+            <span class="footer-cat">Informazioa</span>
+            <ul class="footer-cat-links">
+
+                <li><a href=""><span>Terminoak eta Baldintzak</span></a></li>
+                <li><a href=""><span>Kokapena</span></a></li>
+
+            </ul>
+        </div>
+        <div id="address">
+            <ul>
+                <li>
+
+                    <i class="far fa-building"></i>
+                    <div>Tolosa<br />
+                        Zumardi auzoa</div>
+
+                </li>
+            </ul>
+        </div>
+
+    </footer>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="ScriptIT.js"></script>
+    <script src="./script.js"></script>
 </body>
+
 </html>

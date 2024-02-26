@@ -57,6 +57,7 @@ $txapelketak = $txapelketakQuery->fetchAll();
                 <a href="piraguistak.php"><span>Piraguistak</span></a>
                 <a href="Txapelketak.php"><span>Txapelketak</span></a>
                 <a href="Klasifikazioa.php"><span>Klasifikazioa</span></a>
+                <a href="ProfilArrunta.php"><span>Profila</span></a>
                 <a href="logout.php">Saioa Itxi</a>
 
             </div class="mainMenu">

@@ -2,6 +2,13 @@
 session_start();
 require 'connection.php';
 
+$inputEmail = filter_var($_SESSION["inputemail"], FILTER_SANITIZE_EMAIL);
+
+
+$profilakquery = $conn->prepare("SELECT * FROM erabiltzailea WHERE Email = :inputEmail");
+$profilakquery->bindParam(':inputEmail', $inputEmail, PDO::PARAM_STR);
+$profilakquery->execute();
+$profilakresult = $profilakquery->fetchAll();
 
 
 
@@ -58,44 +65,27 @@ require 'connection.php';
         <section id="profila">
             <div id="new-taldea-info">
                 <span></span>
-                <h2></h2>
-                <?php
-                /*MySQL*/
-                $servername = "localhost";
-                $username = "root";
-                $password = "";
-                $dbname = "piraguismo";
+                <h2>Profila editatu</h2>
 
-                // Create connection
-                $conn = new mysqli($servername, $username, $password, $dbname);
-
-                // Check connection
-                if ($conn->connect_error) {
-                    die("Connection failed: " . $conn->connect_error);
-                }
-
-                $pasahitza = $_POST['pasahitz_berria'];
-                $email = $_SESSION["inputemail"];
-
-
-
-                $Aldaketa = "UPDATE erabiltzailea set Pasahitza='$pasahitza' WHERE Email='$email'";
-
-
-
-
-                if (mysqli_query($conn, $Aldaketa)) {
-                    echo "<h2>Pasahitza eguneratu da</h2>";
-                } else {
-                    echo "Error: " . $Aldaketa . "<br>" . mysqli_error($conn);
-                }
-
-
-
-                ?>
+                <form method="POST" action="ezabatu2.php" id="deleteForm">
+    <button type="button" onclick="ezabatubai()">Ezabatu</button>
+    <button type="button" onclick="ezabatuez()">Ezeztatu</button>
+</form>
 
 
         </section>
 </body>
+<script>
+    function ezabatubai() {
+        var confirmacion = confirm("¿Seguro zaude ezabatu nahi duzula?");
+        if (confirmacion) {
+            document.getElementById('deleteForm').submit();
+        }
+    }
 
+    function ezabatuez() {
+        // Aquí puedes redirigir al index o realizar alguna otra acción si el usuario decide cancelar
+        window.location.href = 'index.php';
+    }
+</script>
 </html>

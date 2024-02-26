@@ -70,8 +70,8 @@ $profilakresult = $profilakquery->fetchAll();
                 <a class="btn" href="izenaaldatu.php">Izena aldatu</a>
                 <a class="btn" href="abizenaaldatu.php">Abizena aldatu</a>
                 <a class="btn" href="pasahitzaaldatu.php">Pasahitza aldatu</a>
+                <a class="btn" href="ezabatuarrunta.php">Erabiltzailea ezabatu</a>
 
-                <!--Hemen, gure ikasgaiaren aldaketak egiteko behar ditugun datuak sartzeko "kutxak" sortzen ditugu-->
             </div>
         </section>
 </body>

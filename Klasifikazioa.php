@@ -60,10 +60,50 @@ $Klasifikazioak = $KlasifikazioaQuery->fetchAll();
                 <a href="piraguistak.php"><span>Piraguistak</span></a>
                 <a href="Txapelketak.php"><span>Txapelketak</span></a>
                 <a href="Klasifikazioa.php"><span>Klasifikazioa</span></a>
+                <a href="ProfilArrunta.php"><span>Profila</span></a>
                 <a href="logout.php">Saioa Itxi</a>
 
             </div class="mainMenu">
         </nav>
+        <section id="Txapelketak">
+            <div id="new-taldea-info">
+                <span></span>
+                <table class="styled-table">
+                   
+                    <tbody>
+                    
+                        <?php foreach ($Klasifikazioak as $index => $klasifikazioa): ?>
+                            <tr>
+                                <td align="center">
+                                    <?php echo $klasifikazioa["Izena"] ?>
+                                </td>
+                                <td>
+                                    <?php echo $klasifikazioa["Kokapena"] ?>
+                                </td>
+                                <td>
+                                    <?php echo $klasifikazioa["Data_Hasi"] ?>
+                                </td>
+                                <td>
+                                    <?php echo $klasifikazioa["Data_Bukatu"] ?>
+                                </td>
+                                <td>
+                                    <?php echo $klasifikazioa["Zailtasun_Maila"] ?>
+                                </td>
+                                <td>
+                                    <?php echo $klasifikazioa["ParteHartuDenbora"] ?>
+                                    
+                                </td>
+                                <td>
+                                <?php echo $klasifikazioa["Mota"] ?>
+                                    
+                                </td>
+                            </tr>
+                        <?php endforeach; ?>
+                    
+                    </tbody>
+                </table>
+            </div>
+        </section>
        
 </body>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>

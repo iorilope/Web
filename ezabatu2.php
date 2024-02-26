@@ -79,13 +79,16 @@ require 'connection.php';
 
 
 
-                $Aldaketa = "UPDATE erabiltzailea set Pasahitza='$pasahitza' WHERE Email='$email'";
+                $Aldaketa = "delete from  erabiltzailea WHERE Email='$email'";
 
 
 
 
                 if (mysqli_query($conn, $Aldaketa)) {
-                    echo "<h2>Pasahitza eguneratu da</h2>";
+                    echo "<h2>Erabiltzailea kendu da</h2>";
+                    session_destroy();
+                    header('location:index.html');
+
                 } else {
                     echo "Error: " . $Aldaketa . "<br>" . mysqli_error($conn);
                 }
