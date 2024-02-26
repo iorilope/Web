@@ -1,18 +1,15 @@
-<!DOCTYPE html>
 <?php
 session_start();
 require 'connection.php';
-// Taldeak KONTSULTATU
-$taldekodeQuery = $conn->prepare("SELECT DISTINCT Taldea_Kodea FROM piraguista");
-$taldekodeQuery->execute();
-$taldekodeResult = $taldekodeQuery->fetchAll(PDO::FETCH_COLUMN);
 
-// Piraguistak KONTSULTATU
-$piraguistakQuery = $conn->prepare("SELECT piraguista.*, taldea.Izena as TaldeIzena
-                                    FROM piraguista
-                                    INNER JOIN taldea  ON piraguista.Taldea_Kodea = taldea.Kodea");
-$piraguistakQuery->execute();
-$piraguistak = $piraguistakQuery->fetchAll();
+
+
+// // Piraguistak KONTSULTATU
+$txapelketakQuery = $conn->prepare("SELECT txapelketa.*, modalitatea.Mota
+                                    FROM txapelketa
+                                    INNER JOIN modalitatea  ON txapelketa.Modalitatea_ID_M = modalitatea.ID_M");
+$txapelketakQuery->execute();
+$txapelketak = $txapelketakQuery->fetchAll();
 
 ?>
 <!DOCTYPE html>
@@ -64,36 +61,40 @@ $piraguistak = $piraguistakQuery->fetchAll();
 
             </div class="mainMenu">
         </nav>
-        <section id="Piraguistak">
+        <section id="Txapelketak">
             <div id="new-taldea-info">
                 <span></span>
                 <table class="styled-table">
                     <thead>
                         <tr>
                             <th align="center">Izena</th>
-                            <th>Abizena</th>
-                            <th>Generoa</th>
-                            <th>Txapelketa Kantitatea</th>
-                            <th>Taldea</th>
+                            <th>Kokapena</th>
+                            <th>Data Hasi</th>
+                            <th>Data Bukatu</th>
+                            <th>Zailtasun Maila</th>
+                            <th>Modalitatea</th>
                         </tr>
                     </thead>
                     <tbody>
-                        <?php foreach ($piraguistak as $index => $piraguista): ?>
+                        <?php foreach ($txapelketak as $index => $txapelketa): ?>
                             <tr>
                                 <td align="center">
-                                    <?php echo $piraguista["Izena"] ?>
+                                    <?php echo $txapelketa["Izena"] ?>
                                 </td>
                                 <td>
-                                    <?php echo $piraguista["Abizena"] ?>
+                                    <?php echo $txapelketa["Kokapena"] ?>
                                 </td>
                                 <td>
-                                    <?php echo $piraguista["Generoa"] ?>
+                                    <?php echo $txapelketa["Data_Hasi"] ?>
                                 </td>
                                 <td>
-                                    <?php echo $piraguista["Txapelketa_kantitatea"] ?>
+                                    <?php echo $txapelketa["Data_Bukatu"] ?>
                                 </td>
                                 <td>
-                                    <?php echo $piraguista["TaldeIzena"] ?>
+                                    <?php echo $txapelketa["Zailtasun_Maila"] ?>
+                                </td>
+                                <td>
+                                    <?php echo $txapelketa["Mota"] ?>
                                 </td>
                             </tr>
                         <?php endforeach; ?>
@@ -101,33 +102,7 @@ $piraguistak = $piraguistakQuery->fetchAll();
                 </table>
             </div>
         </section>
-        <footer>
-            <div>
-                <span class="logo">Urpera</span>
-            </div>
-
-            <div class="col-3">
-                <span class="footer-cat">Informazioa</span>
-                <ul class="footer-cat-links">
-
-                    <li><a href=""><span>Terminoak eta Baldintzak</span></a></li>
-                    <li><a href=""><span>Kokapena</span></a></li>
-
-                </ul>
-            </div>
-            <div id="address">
-                <ul>
-                    <li>
-
-                        <i class="far fa-building"></i>
-                        <div>Tolosa<br />
-                            Zumardi auzoa</div>
-
-                    </li>
-                </ul>
-            </div>
-
-        </footer>
+       
 </body>
 
 </html>
