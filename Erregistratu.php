@@ -63,37 +63,27 @@
 
             <form method="post" class="form" action="check_register.php">
                 <div class="mb-3">
-
                     <label for="InputIzena" class="form-label">Izena</label>
                     <input type="text" required class="form-control" id="inputizena" name="fizena">
-
-
                 </div>
-                <div class="mb-3">
 
+                <div class="mb-3">
                     <label for="InputAbizena" class="form-label">Abizena</label>
                     <input type="text" required class="form-control" id="inputabizena" name="fabizena">
-
-
                 </div>
+
                 <div class="mb-3">
-
-                <label for="InputEmail">Email:</label>
-                <input type="text" required class="form-control" id="InputEmail" name="femail">
-
-
+                    <label for="InputEmail">Email:</label>
+                    <input type="text" required class="form-control" id="InputEmail" name="femail">
                 </div>
-                <div class="mb-3">
 
+                <div class="mb-3">
                     <label for="InputPassword1" class="form-label">Pasahitza</label>
                     <input type="password" required class="form-control" id="InputPassword" name="fpasahitza">
-
                 </div>
 
                 <div class="d-flex align-items-center">
-
                     <button type="submit" name="submit" class="btn btn-primary me-auto">Bidali</button>
-
                 </div>
             </form>
         </div>

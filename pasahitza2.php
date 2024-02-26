@@ -2,9 +2,6 @@
 session_start();
 require 'connection.php';
 
-
-
-
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -25,17 +22,15 @@ require 'connection.php';
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta http-equiv="X-UA-Compatible" content="ie=edge">
-        <link href="https://fonts.googleapis.com/css?family=Lato|Nanum+Gothic:700|Raleway&display=swap"
-            rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Lato|Nanum+Gothic:700|Raleway&display=swap" rel="stylesheet">
         <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.9.0/css/all.css" rel="stylesheet">
         <title>Urpera Kluba</title>
 
     </head>
 
     <header id="topHeader">
-
-
         <nav>
+
             <span class="logo">Erabiltzailea:
                 <?php echo ($_SESSION["inputemail"]) ? $_SESSION["inputemail"] : "Ez da saioa hasi"; ?>
             </span>
@@ -55,10 +50,12 @@ require 'connection.php';
 
             </div class="mainMenu">
         </nav>
+
         <section id="profila">
             <div id="new-taldea-info">
                 <span></span>
                 <h2></h2>
+
                 <?php
                 /*MySQL*/
                 $servername = "localhost";
@@ -77,23 +74,14 @@ require 'connection.php';
                 $pasahitza = $_POST['pasahitz_berria'];
                 $email = $_SESSION["inputemail"];
 
-
-
                 $Aldaketa = "UPDATE erabiltzailea set Pasahitza='$pasahitza' WHERE Email='$email'";
-
-
-
 
                 if (mysqli_query($conn, $Aldaketa)) {
                     echo "<h2>Pasahitza eguneratu da</h2>";
                 } else {
                     echo "Error: " . $Aldaketa . "<br>" . mysqli_error($conn);
                 }
-
-
-
                 ?>
-
 
         </section>
 </body>

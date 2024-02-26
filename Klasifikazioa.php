@@ -2,9 +2,6 @@
 session_start();
 require 'connection.php';
 
-
-
-// // Piraguistak KONTSULTATU
 $KlasifikazioaQuery = $conn->prepare("SELECT txapelketa.*,modalitatea.Mota, parte_hartu.Denbora AS ParteHartuDenbora, taldea.Izena AS TaldeaIzena
                                     FROM txapelketa
                                     LEFT JOIN modalitatea ON txapelketa.Modalitatea_ID_M = modalitatea.ID_M
@@ -12,7 +9,6 @@ $KlasifikazioaQuery = $conn->prepare("SELECT txapelketa.*,modalitatea.Mota, part
                                     LEFT JOIN taldea ON parte_hartu.Taldea_Kodea = taldea.Kodea");
 $KlasifikazioaQuery->execute();
 $Klasifikazioak = $KlasifikazioaQuery->fetchAll();
-
 
 ?>
 <!DOCTYPE html>
@@ -43,7 +39,6 @@ $Klasifikazioak = $KlasifikazioaQuery->fetchAll();
 
     <header id="topHeader">
 
-
         <nav>
             <span class="logo">Erabiltzailea:
                 <?php echo ($_SESSION["inputemail"]) ? $_SESSION["inputemail"] : "Ez da saioa hasi"; ?>
@@ -54,7 +49,7 @@ $Klasifikazioak = $KlasifikazioaQuery->fetchAll();
 
             <div class="mainMenu">
 
-            <a href="Index_Arrunta.php"><span>Hasiera</span></a>
+                <a href="Index_Arrunta.php"><span>Hasiera</span></a>
                 <a href="Egutegia.html"><span>Egutegia</span></a>
                 <a href="Taldeak.php"><span>Taldeak</span></a>
                 <a href="piraguistak.php"><span>Piraguistak</span></a>
@@ -65,13 +60,13 @@ $Klasifikazioak = $KlasifikazioaQuery->fetchAll();
 
             </div class="mainMenu">
         </nav>
+
         <section id="Txapelketak">
             <div id="new-taldea-info">
                 <span></span>
                 <table class="styled-table">
-                   
                     <tbody>
-                    
+
                         <?php foreach ($Klasifikazioak as $index => $klasifikazioa): ?>
                             <tr>
                                 <td align="center">
@@ -91,22 +86,23 @@ $Klasifikazioak = $KlasifikazioaQuery->fetchAll();
                                 </td>
                                 <td>
                                     <?php echo $klasifikazioa["ParteHartuDenbora"] ?>
-                                    
+
                                 </td>
                                 <td>
-                                <?php echo $klasifikazioa["Mota"] ?>
-                                    
+                                    <?php echo $klasifikazioa["Mota"] ?>
+
                                 </td>
                             </tr>
                         <?php endforeach; ?>
-                    
+
                     </tbody>
                 </table>
             </div>
         </section>
-       
+
 </body>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-    <script src="ScriptIT.js"></script>
-    <script src="./script.js"></script>
+<script src="ScriptIT.js"></script>
+<script src="./script.js"></script>
+
 </html>

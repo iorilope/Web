@@ -4,13 +4,10 @@ require 'connection.php';
 
 $inputEmail = filter_var($_SESSION["inputemail"], FILTER_SANITIZE_EMAIL);
 
-
 $profilakquery = $conn->prepare("SELECT * FROM erabiltzailea WHERE Email = :inputEmail");
 $profilakquery->bindParam(':inputEmail', $inputEmail, PDO::PARAM_STR);
 $profilakquery->execute();
 $profilakresult = $profilakquery->fetchAll();
-
-
 
 ?>
 <!DOCTYPE html>
@@ -40,8 +37,6 @@ $profilakresult = $profilakquery->fetchAll();
     </head>
 
     <header id="topHeader">
-
-
         <nav>
             <span class="logo">Erabiltzailea:
                 <?php echo ($_SESSION["inputemail"]) ? $_SESSION["inputemail"] : "Ez da saioa hasi"; ?>
@@ -79,8 +74,6 @@ $profilakresult = $profilakquery->fetchAll();
                     Abizen berria: <input type="text" name="abizen_berria"><br>
                     <input type="submit" />
                 </form>
-
-
         </section>
 </body>
 

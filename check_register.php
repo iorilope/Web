@@ -1,8 +1,8 @@
 <?php
 session_start();
-// Verificar si se ha enviado el formulario
+
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    // Obtener las credenciales del formulario
+
     $izena = $_POST["fizena"];
     $pasahitza = $_POST["fpasahitza"];
     $abizena = $_POST["fabizena"];
@@ -19,9 +19,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Create connection
     $conn = new mysqli($servername, $username, $password, $dbname);
 
-     // Check connection
+    // Check connection
     if ($conn->connect_error) {
-      die("Connection failed: " . $conn->connect_error);
+        die("Connection failed: " . $conn->connect_error);
     }
 
     $query = "INSERT INTO erabiltzailea (Izena, Abizena, Email, Pasahitza, Mota) VALUES ('$izena', '$abizena', '$email', '$pasahitza', 'Arrunta')";

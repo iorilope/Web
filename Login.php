@@ -43,7 +43,7 @@
             <div class="mainMenu">
 
                 <a href="index.html"><span>Hasiera</span></a>
-                <a href="Egutegia.html"><span>Egutegia</span></a>
+                <a href="Erregistratu.php"><span>Erregistratu</span></a>
                 <a href="Login.php">Saioa hasi</a>
 
             </div class="mainMenu">

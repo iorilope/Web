@@ -6,10 +6,6 @@ $taldeak = $conn->prepare("select Izena, Herria from taldea");
 $taldeak->execute();
 $taldeak = $taldeak->fetchAll();
 
-
-
-
-
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -50,7 +46,7 @@ $taldeak = $taldeak->fetchAll();
 
             <div class="mainMenu">
 
-            <a href="Index_Arrunta.php"><span>Hasiera</span></a>
+                <a href="Index_Arrunta.php"><span>Hasiera</span></a>
                 <a href="Egutegia.html"><span>Egutegia</span></a>
                 <a href="Taldeak.php"><span>Taldeak</span></a>
                 <a href="piraguistak.php"><span>Piraguistak</span></a>
@@ -62,6 +58,7 @@ $taldeak = $taldeak->fetchAll();
             </div class="mainMenu">
         </nav>
     </header>
+
     <section id="Taldeak">
         <div id="new-taldea-info">
             <span></span>
@@ -87,6 +84,7 @@ $taldeak = $taldeak->fetchAll();
             </table>
         </div>
     </section>
+
     <footer>
         <div>
             <span class="logo">Urpera</span>
@@ -116,6 +114,7 @@ $taldeak = $taldeak->fetchAll();
     </footer>
 </body>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-    <script src="ScriptIT.js"></script>
-    <script src="./script.js"></script>
+<script src="ScriptIT.js"></script>
+<script src="./script.js"></script>
+
 </html>

@@ -1,10 +1,6 @@
 <?php
 session_start();
 require 'connection.php';
-
-
-
-
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -31,10 +27,7 @@ require 'connection.php';
         <title>Urpera Kluba</title>
 
     </head>
-
     <header id="topHeader">
-
-
         <nav>
             <span class="logo">Erabiltzailea:
                 <?php echo ($_SESSION["inputemail"]) ? $_SESSION["inputemail"] : "Ez da saioa hasi"; ?>
@@ -59,6 +52,7 @@ require 'connection.php';
             <div id="new-taldea-info">
                 <span></span>
                 <h2></h2>
+
                 <?php
                 /*MySQL*/
                 $servername = "localhost";
@@ -83,17 +77,12 @@ require 'connection.php';
 
                 /*Hemen, "ikasgaiak" taulan izena aldatzeko funtzio bat sortzen dugu */
 
-
                 if (mysqli_query($conn, $Aldaketa)) {
                     echo "<h2>Erabiltzailea eguneratu da</h2>";
                 } else {
                     echo "Error: " . $Aldaketa . "<br>" . mysqli_error($conn);
                 }
-
-
-
                 ?>
-
 
         </section>
 </body>

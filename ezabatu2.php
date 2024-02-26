@@ -1,10 +1,6 @@
 <?php
 session_start();
 require 'connection.php';
-
-
-
-
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -33,9 +29,8 @@ require 'connection.php';
     </head>
 
     <header id="topHeader">
-
-
         <nav>
+
             <span class="logo">Erabiltzailea:
                 <?php echo ($_SESSION["inputemail"]) ? $_SESSION["inputemail"] : "Ez da saioa hasi"; ?>
             </span>
@@ -55,10 +50,12 @@ require 'connection.php';
 
             </div class="mainMenu">
         </nav>
+
         <section id="profila">
             <div id="new-taldea-info">
                 <span></span>
                 <h2></h2>
+
                 <?php
                 /*MySQL*/
                 $servername = "localhost";
@@ -77,26 +74,16 @@ require 'connection.php';
                 $pasahitza = $_POST['pasahitz_berria'];
                 $email = $_SESSION["inputemail"];
 
-
-
                 $Aldaketa = "delete from  erabiltzailea WHERE Email='$email'";
-
-
-
 
                 if (mysqli_query($conn, $Aldaketa)) {
                     echo "<h2>Erabiltzailea kendu da</h2>";
                     session_destroy();
                     header('location:index.html');
-
                 } else {
                     echo "Error: " . $Aldaketa . "<br>" . mysqli_error($conn);
                 }
-
-
-
                 ?>
-
 
         </section>
 </body>

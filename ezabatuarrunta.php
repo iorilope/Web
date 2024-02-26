@@ -4,13 +4,10 @@ require 'connection.php';
 
 $inputEmail = filter_var($_SESSION["inputemail"], FILTER_SANITIZE_EMAIL);
 
-
 $profilakquery = $conn->prepare("SELECT * FROM erabiltzailea WHERE Email = :inputEmail");
 $profilakquery->bindParam(':inputEmail', $inputEmail, PDO::PARAM_STR);
 $profilakquery->execute();
 $profilakresult = $profilakquery->fetchAll();
-
-
 
 ?>
 <!DOCTYPE html>
@@ -40,8 +37,6 @@ $profilakresult = $profilakquery->fetchAll();
     </head>
 
     <header id="topHeader">
-
-
         <nav>
             <span class="logo">Erabiltzailea:
                 <?php echo ($_SESSION["inputemail"]) ? $_SESSION["inputemail"] : "Ez da saioa hasi"; ?>
@@ -68,13 +63,12 @@ $profilakresult = $profilakquery->fetchAll();
                 <h2>Profila editatu</h2>
 
                 <form method="POST" action="ezabatu2.php" id="deleteForm">
-    <button type="button" onclick="ezabatubai()">Ezabatu</button>
-    <button type="button" onclick="ezabatuez()">Ezeztatu</button>
-</form>
-
-
+                    <button type="button" onclick="ezabatubai()">Ezabatu</button>
+                    <button type="button" onclick="ezabatuez()">Ezeztatu</button>
+                </form>
         </section>
 </body>
+
 <script>
     function ezabatubai() {
         var confirmacion = confirm("¿Seguro zaude ezabatu nahi duzula?");
@@ -88,4 +82,5 @@ $profilakresult = $profilakquery->fetchAll();
         window.location.href = 'index.php';
     }
 </script>
+
 </html>

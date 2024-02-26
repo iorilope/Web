@@ -2,6 +2,7 @@
 <?php
 session_start();
 require 'connection.php';
+
 // Taldeak KONTSULTATU
 $taldekodeQuery = $conn->prepare("SELECT DISTINCT Taldea_Kodea FROM piraguista");
 $taldekodeQuery->execute();
@@ -31,7 +32,7 @@ $piraguistak = $piraguistakQuery->fetchAll();
 
     <head>
 
-    <meta charset="UTF-8">
+        <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta http-equiv="X-UA-Compatible" content="ie=edge">
         <link href="https://fonts.googleapis.com/css?family=Lato|Nanum+Gothic:700|Raleway&display=swap"
@@ -54,7 +55,7 @@ $piraguistak = $piraguistakQuery->fetchAll();
 
             <div class="mainMenu">
 
-            <a href="Index_Arrunta.php"><span>Hasiera</span></a>
+                <a href="Index_Arrunta.php"><span>Hasiera</span></a>
                 <a href="Egutegia.html"><span>Egutegia</span></a>
                 <a href="Taldeak.php"><span>Taldeak</span></a>
                 <a href="piraguistak.php"><span>Piraguistak</span></a>
@@ -65,10 +66,12 @@ $piraguistak = $piraguistakQuery->fetchAll();
 
             </div class="mainMenu">
         </nav>
+
         <section id="Taldeak">
             <div id="new-taldea-info">
                 <span></span>
                 <table class="styled-table">
+
                     <thead>
                         <tr>
                             <th align="center">Izena</th>
@@ -78,6 +81,7 @@ $piraguistak = $piraguistakQuery->fetchAll();
                             <th>Taldea</th>
                         </tr>
                     </thead>
+
                     <tbody>
                         <?php foreach ($piraguistak as $index => $piraguista): ?>
                             <tr>
@@ -99,38 +103,40 @@ $piraguistak = $piraguistakQuery->fetchAll();
                             </tr>
                         <?php endforeach; ?>
                     </tbody>
+
                 </table>
             </div>
         </section>
         <footer>
-        <div>
-            <span class="logo">Urpera</span>
-        </div>
+            <div>
+                <span class="logo">Urpera</span>
+            </div>
 
-        <div class="col-3">
-            <span class="footer-cat">Informazioa</span>
-            <ul class="footer-cat-links">
+            <div class="col-3">
+                <span class="footer-cat">Informazioa</span>
+                <ul class="footer-cat-links">
 
-                <li><a href=""><span>Terminoak eta Baldintzak</span></a></li>
-                <li><a href=""><span>Kokapena</span></a></li>
+                    <li><a href=""><span>Terminoak eta Baldintzak</span></a></li>
+                    <li><a href=""><span>Kokapena</span></a></li>
 
-            </ul>
-        </div>
-        <div id="address">
-            <ul>
-                <li>
+                </ul>
+            </div>
+            <div id="address">
+                <ul>
+                    <li>
 
-                    <i class="far fa-building"></i>
-                    <div>Tolosa<br />
-                        Zumardi auzoa</div>
+                        <i class="far fa-building"></i>
+                        <div>Tolosa<br />
+                            Zumardi auzoa</div>
 
-                </li>
-            </ul>
-        </div>
+                    </li>
+                </ul>
+            </div>
 
-    </footer>
+        </footer>
 </body>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-    <script src="ScriptIT.js"></script>
-    <script src="./script.js"></script>
+<script src="ScriptIT.js"></script>
+<script src="./script.js"></script>
+
 </html>

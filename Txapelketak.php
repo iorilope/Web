@@ -2,9 +2,6 @@
 session_start();
 require 'connection.php';
 
-
-
-// // Piraguistak KONTSULTATU
 $txapelketakQuery = $conn->prepare("SELECT txapelketa.*, modalitatea.Mota
                                     FROM txapelketa
                                     INNER JOIN modalitatea  ON txapelketa.Modalitatea_ID_M = modalitatea.ID_M");
@@ -39,9 +36,8 @@ $txapelketak = $txapelketakQuery->fetchAll();
     </head>
 
     <header id="topHeader">
-
-
         <nav>
+
             <span class="logo">Erabiltzailea:
                 <?php echo ($_SESSION["inputemail"]) ? $_SESSION["inputemail"] : "Ez da saioa hasi"; ?>
             </span>
@@ -51,7 +47,7 @@ $txapelketak = $txapelketakQuery->fetchAll();
 
             <div class="mainMenu">
 
-            <a href="Index_Arrunta.php"><span>Hasiera</span></a>
+                <a href="Index_Arrunta.php"><span>Hasiera</span></a>
                 <a href="Egutegia.html"><span>Egutegia</span></a>
                 <a href="Taldeak.php"><span>Taldeak</span></a>
                 <a href="piraguistak.php"><span>Piraguistak</span></a>
@@ -62,10 +58,12 @@ $txapelketak = $txapelketakQuery->fetchAll();
 
             </div class="mainMenu">
         </nav>
+
         <section id="Txapelketak">
             <div id="new-taldea-info">
                 <span></span>
                 <table class="styled-table">
+
                     <thead>
                         <tr>
                             <th align="center">Izena</th>
@@ -76,6 +74,7 @@ $txapelketak = $txapelketakQuery->fetchAll();
                             <th>Modalitatea</th>
                         </tr>
                     </thead>
+
                     <tbody>
                         <?php foreach ($txapelketak as $index => $txapelketa): ?>
                             <tr>
@@ -100,12 +99,15 @@ $txapelketak = $txapelketakQuery->fetchAll();
                             </tr>
                         <?php endforeach; ?>
                     </tbody>
+
                 </table>
             </div>
         </section>
-       
+
 </body>
+
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-    <script src="ScriptIT.js"></script>
-    <script src="./script.js"></script>
+<script src="ScriptIT.js"></script>
+<script src="./script.js"></script>
+
 </html>

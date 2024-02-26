@@ -4,17 +4,15 @@ require 'connection.php';
 
 $inputEmail = filter_var($_SESSION["inputemail"], FILTER_SANITIZE_EMAIL);
 
-
 $profilakquery = $conn->prepare("SELECT * FROM erabiltzailea WHERE Email = :inputEmail");
 $profilakquery->bindParam(':inputEmail', $inputEmail, PDO::PARAM_STR);
 $profilakquery->execute();
 $profilakresult = $profilakquery->fetchAll();
 
-
-
 ?>
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
 
     <meta charset="UTF-8">
@@ -40,7 +38,6 @@ $profilakresult = $profilakquery->fetchAll();
 
     <header id="topHeader">
 
-
         <nav>
             <span class="logo">Erabiltzailea:
                 <?php echo ($_SESSION["inputemail"]) ? $_SESSION["inputemail"] : "Ez da saioa hasi"; ?>
@@ -51,7 +48,7 @@ $profilakresult = $profilakquery->fetchAll();
 
             <div class="mainMenu">
 
-            <a href="Index_Arrunta.php"><span>Hasiera</span></a>
+                <a href="Index_Arrunta.php"><span>Hasiera</span></a>
                 <a href="Egutegia.html"><span>Egutegia</span></a>
                 <a href="Taldeak.php"><span>Taldeak</span></a>
                 <a href="piraguistak.php"><span>Piraguistak</span></a>
@@ -61,25 +58,26 @@ $profilakresult = $profilakquery->fetchAll();
 
             </div class="mainMenu">
         </nav>
+
         <section id="profila">
             <div id="new-taldea-info">
                 <span></span>
                 <h2>Profila editatu</h2>
 
                 <form method="POST" action="izena2.php">
-    Erabiltzaile Izena:
-    <select type="text" name="fizena">
-        <?php foreach ($profilakresult as $index => $profila) : ?>
-            <option value='<?php echo $profila["Izena"]; ?>'>
-                <?php echo $profila["Izena"]; ?>
-            </option>
-        <?php endforeach; ?>
-    </select><br>
-    Izen berria: <input type="text" name="izen_berria"><br>
-    <input type="submit" />
-</form>
-            	
-	
+                    Erabiltzaile Izena:
+                    <select type="text" name="fizena">
+                        <?php foreach ($profilakresult as $index => $profila): ?>
+                            <option value='<?php echo $profila["Izena"]; ?>'>
+                                <?php echo $profila["Izena"]; ?>
+                            </option>
+                        <?php endforeach; ?>
+                    </select><br>
+                    Izen berria: <input type="text" name="izen_berria"><br>
+                    <input type="submit" />
+                </form>
+
         </section>
 </body>
+
 </html>
