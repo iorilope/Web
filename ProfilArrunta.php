@@ -49,7 +49,7 @@ $profilakresult = $profilakquery->fetchAll();
             </div>
 
             <div class="mainMenu">
-            <a href="Index_Arrunta.php"><span>Hasiera</span></a>
+                <a href="Index_Arrunta.php"><span>Hasiera</span></a>
                 <a href="Egutegia.html"><span>Egutegia</span></a>
                 <a href="Taldeak.php"><span>Taldeak</span></a>
                 <a href="piraguistak.php"><span>Piraguistak</span></a>
@@ -101,14 +101,15 @@ $profilakresult = $profilakquery->fetchAll();
                 <span></span>
                 <h2>Profila editatu</h2>
                 <form action="profila2.php" method="post">
-    <div class="Menu">
-    </div>
+                    <div class="Menu">
+                    </div>
 
-    <button type="submit" name="action" value="izenaaldatu" class="btn">Izena aldatu</button>
-    <button type="submit" name="action" value="abizenaaldatu" class="btn">Abizena aldatu</button>
-    <button type="submit" name="action" value="pasahitzaaldatu" class="btn">Pasahitza aldatu</button>
-    <button type="submit" name="action" value="ezabatuarrunta" class="btn">Erabiltzailea ezabatu</button>
-</form>
+                    <button type="submit" name="action" value="izenaaldatu" class="btn">Izena aldatu</button>
+                    <button type="submit" name="action" value="abizenaaldatu" class="btn">Abizena aldatu</button>
+                    <button type="submit" name="action" value="pasahitzaaldatu" class="btn">Pasahitza aldatu</button>
+                    <button type="submit" name="action" value="ezabatuarrunta" class="btn">Erabiltzailea
+                        ezabatu</button>
+                </form>
         </section>
 
 

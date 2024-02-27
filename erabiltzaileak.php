@@ -98,15 +98,16 @@ $erabiltzaileak = $erabiltzaileakQuery->fetchAll();
                 <span></span>
                 <h2>Profila editatu</h2>
                 <form action="erabiltzaileak2.php" method="post">
-    <div class="Menu">
-        Erabiltzailearen id-a: <input type="text" name="fid"><br>
-    </div>
+                    <div class="Menu">
+                        Erabiltzailearen id-a: <input type="text" name="fid"><br>
+                    </div>
 
-    <button type="submit" name="action" value="izenaaldatu" class="btn">Izena aldatu</button>
-    <button type="submit" name="action" value="abizenaaldatu" class="btn">Abizena aldatu</button>
-    <button type="submit" name="action" value="pasahitzaaldatu" class="btn">Pasahitza aldatu</button>
-    <button type="submit" name="action" value="ezabatuarrunta" class="btn">Erabiltzailea ezabatu</button>
-</form>
+                    <button type="submit" name="action" value="izenaaldatu" class="btn">Izena aldatu</button>
+                    <button type="submit" name="action" value="abizenaaldatu" class="btn">Abizena aldatu</button>
+                    <button type="submit" name="action" value="pasahitzaaldatu" class="btn">Pasahitza aldatu</button>
+                    <button type="submit" name="action" value="ezabatuarrunta" class="btn">Erabiltzailea
+                        ezabatu</button>
+                </form>
         </section>
 
 </body>

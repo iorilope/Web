@@ -47,7 +47,7 @@ $taldeak = $taldeak->fetchAll();
 
             <div class="mainMenu">
 
-            <a href="IndexAdmin.php"><span>Hasiera</span></a>
+                <a href="IndexAdmin.php"><span>Hasiera</span></a>
                 <a href="TaldeakAdmin.php"><span>Taldeak</span></a>
                 <a href="piraguistakAdmin.php"><span>Piraguistak</span></a>
                 <a href="TxapelketakAdmin.php"><span>Txapelketak</span></a>

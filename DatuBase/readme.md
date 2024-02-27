@@ -29,7 +29,7 @@ Tutorial hau jarraitzeko, beharrezkoa da:
 
 1. Ireki MySQL Workbench.
 2. Egin klik **File** eta gero **Run SQL Script** hautatu.
-3. Hautatu SQL fitxategia eta egin klik **Run** botoian.
+3. Hautatu SQL fitxategia (Dump.sql fitxategia )eta egin klik **Run** botoian.
 
 ## Baliabide Gehigarriak
 

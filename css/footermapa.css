@@ -2,15 +2,15 @@ footer {
     display: flex;
     justify-content: space-between;
     align-items: flex-start;
-    padding: 20px; /* Ajusta el relleno según sea necesario */
+    padding: 20px; 
 }
 
 .logo {
-    font-size: 1.5em; /* Ajusta el tamaño del texto según sea necesario */
+    font-size: 1.5em; 
 }
 
 .col-3 {
-    margin-left: 20px; /* Ajusta el margen entre las columnas según sea necesario */
+    margin-left: 20px; 
 }
 
 .footer-cat {
@@ -34,5 +34,5 @@ iframe {
     width: 400px;
     height: 300px;
     border: 0;
-    margin-left: auto; /* Mueve el iframe a la derecha del contenedor */
+    margin-left: auto; 
 }

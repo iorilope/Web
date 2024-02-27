@@ -2,7 +2,7 @@
 session_start();
 require 'connection.php';
 
-$id 	=	$_POST['fid'];
+$id = $_POST['fid'];
 
 ?>
 <!DOCTYPE html>
@@ -62,54 +62,54 @@ $id 	=	$_POST['fid'];
 
         </section>
         <?php
-if (isset($_POST['action'])) {
-    $action = $_POST['action'];
-    $fid = isset($_POST['fid']) ? $_POST['fid'] : null;
+        if (isset($_POST['action'])) {
+            $action = $_POST['action'];
+            $fid = isset($_POST['fid']) ? $_POST['fid'] : null;
 
-    // Realizar acciones específicas basadas en el valor de $action
-    switch ($action) {
-        case 'izenaaldatu': 
-            ?>
-            <form method="POST" action="izenaadmin2.php">
-                <input type="hidden" name="fid" value="<?php echo $fid; ?>">
-                Izen berria: <input type="text" name="izen_berria"><br>
-                <input type="submit" />
-            </form>
-            <?php
-            break;
-        case 'abizenaaldatu':
-            ?>
-            <form method="POST" action="abizenaadmin2.php">
-                <input type="hidden" name="fid" value="<?php echo $fid; ?>">
-                Abizen berria: <input type="text" name="abizen_berria"><br>
-                <input type="submit" />
-            </form>
-            <?php
-            break;
-        case 'pasahitzaaldatu':
-            ?>
-            <form method="POST" action="pasahitzaadmin2.php">
-                <input type="hidden" name="fid" value="<?php echo $fid; ?>">
-                Pasahitz berria: <input type="password" name="pasahitz_berria"><br>
-                <input type="submit" />
-            </form>
-            <?php
-            break;
-        case 'ezabatuarrunta':
-            ?>
-            <form method="POST" action="EzabatuAdmin2.php" id="deleteForm">
-                <input type="hidden" name="fid" value="<?php echo $fid; ?>">
-                <button type="submit" onclick="return confirm('¿Seguro que deseas eliminar?')">Ezabatu</button>
-                <button type="button" onclick="ezabatuez()">Ezeztatu</button>
-            </form>
-            <?php
-            break;
-        default:
-            // Acción predeterminada o manejo de error
-            break;
-    }
-}
-?>
+            // Realizar acciones específicas basadas en el valor de $action
+            switch ($action) {
+                case 'izenaaldatu':
+                    ?>
+                    <form method="POST" action="izenaadmin2.php">
+                        <input type="hidden" name="fid" value="<?php echo $fid; ?>">
+                        Izen berria: <input type="text" name="izen_berria"><br>
+                        <input type="submit" />
+                    </form>
+                    <?php
+                    break;
+                case 'abizenaaldatu':
+                    ?>
+                    <form method="POST" action="abizenaadmin2.php">
+                        <input type="hidden" name="fid" value="<?php echo $fid; ?>">
+                        Abizen berria: <input type="text" name="abizen_berria"><br>
+                        <input type="submit" />
+                    </form>
+                    <?php
+                    break;
+                case 'pasahitzaaldatu':
+                    ?>
+                    <form method="POST" action="pasahitzaadmin2.php">
+                        <input type="hidden" name="fid" value="<?php echo $fid; ?>">
+                        Pasahitz berria: <input type="password" name="pasahitz_berria"><br>
+                        <input type="submit" />
+                    </form>
+                    <?php
+                    break;
+                case 'ezabatuarrunta':
+                    ?>
+                    <form method="POST" action="EzabatuAdmin2.php" id="deleteForm">
+                        <input type="hidden" name="fid" value="<?php echo $fid; ?>">
+                        <button type="submit" onclick="return confirm('¿Seguro que deseas eliminar?')">Ezabatu</button>
+                        <button type="button" onclick="ezabatuez()">Ezeztatu</button>
+                    </form>
+                    <?php
+                    break;
+                default:
+                    // Acción predeterminada o manejo de error
+                    break;
+            }
+        }
+        ?>
 </body>
 <script>
     function ezabatubai() {

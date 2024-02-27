@@ -22,7 +22,8 @@ require 'connection.php';
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta http-equiv="X-UA-Compatible" content="ie=edge">
-        <link href="https://fonts.googleapis.com/css?family=Lato|Nanum+Gothic:700|Raleway&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Lato|Nanum+Gothic:700|Raleway&display=swap"
+            rel="stylesheet">
         <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.9.0/css/all.css" rel="stylesheet">
         <title>Urpera Kluba</title>
 
@@ -40,8 +41,8 @@ require 'connection.php';
 
             <div class="mainMenu">
 
-        
-            <a href="IndexAdmin.php"><span>Hasiera</span></a>
+
+                <a href="IndexAdmin.php"><span>Hasiera</span></a>
                 <a href="TaldeakAdmin.php"><span>Taldeak</span></a>
                 <a href="piraguistakAdmin.php"><span>Piraguistak</span></a>
                 <a href="TxapelketakAdmin.php"><span>Txapelketak</span></a>
