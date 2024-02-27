@@ -41,4 +41,4 @@ Ziurtatu XAMPP instalatuta duzula zure sisteman urrats hauek jarraitu aurretik.
 - **Datu-basera konektatzeko erroreak:** Egiaztatu datu-basera konektatzeko konfigurazioak zure fitxategian.
     
 
-Siguiendo estos pasos, deberías poder ejecutar la página web PHP localmente en tu máquina utilizando XAMPP. ¡Disfruta explorando y desarrollando en tu entorno de desarrollo local!
+Urrats hauek jarraituz, PHP web orria zure makinan exekutatu ahal izango duzu XAMPP erabiliz. Gozatu zure inguruan tokiko garapena esploratzen eta garatzen!
