@@ -60,7 +60,7 @@ session_start();
                 <h1>Tolosako piraguismoko Urpera Kirol Elkartea</h1>
                 <div id="intro-tag-btn">
                     <span></span>
-                    <a href="https://mail.google.com/mail/?view=cm&fs=1&tf=1&to=ioritzlope45@gmail.com" target="_blank"
+                    <a href="https://mail.google.com/mail/?view=cm&fs=1&tf=1&to=infourpera@gmail.com" target="_blank"
                         class="brand-btn">Kontaktuan Jarri</a>
                 </div>
             </div>
@@ -103,7 +103,7 @@ session_start();
 
                     </p>
 
-                    <a href="https://mail.google.com/mail/?view=cm&fs=1&tf=1&to=ioritzlope45@gmail.com" target="_blank"
+                    <a href="https://mail.google.com/mail/?view=cm&fs=1&tf=1&to=infourpera@gmail.com" target="_blank"
                         class="brand-btn">Kontaktuan Jarri</a>
                 </div>
             </div>

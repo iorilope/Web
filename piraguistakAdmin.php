@@ -106,33 +106,7 @@ $piraguistak = $piraguistakQuery->fetchAll();
                 </table>
             </div>
         </section>
-        <footer>
-            <div>
-                <span class="logo">Urpera</span>
-            </div>
 
-            <div class="col-3">
-                <span class="footer-cat">Informazioa</span>
-                <ul class="footer-cat-links">
-
-                    <li><a href=""><span>Terminoak eta Baldintzak</span></a></li>
-                    <li><a href=""><span>Kokapena</span></a></li>
-
-                </ul>
-            </div>
-            <div id="address">
-                <ul>
-                    <li>
-
-                        <i class="far fa-building"></i>
-                        <div>Tolosa<br />
-                            Zumardi auzoa</div>
-
-                    </li>
-                </ul>
-            </div>
-
-        </footer>
 </body>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 <script src="ScriptIT.js"></script>

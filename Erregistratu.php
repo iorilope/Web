@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="style.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+        <link rel="stylesheet" href="./css/footermapa.css">
 
 </head>
 
@@ -43,7 +44,6 @@
             <div class="mainMenu">
 
                 <a href="index.html"><span>Hasiera</span></a>
-                <a href="Egutegia.html"><span>Egutegia</span></a>
                 <a href="Login.php">Saioa hasi</a>
 
             </div class="mainMenu">
@@ -94,7 +94,6 @@
 
         </div>
     </section>
-
     <footer>
         <div>
             <span class="logo">Urpera</span>
@@ -105,23 +104,17 @@
             <ul class="footer-cat-links">
 
                 <li><a href=""><span>Terminoak eta Baldintzak</span></a></li>
-                <li><a href=""><span>Kokapena</span></a></li>
-
-            </ul>
-        </div>
-
-        <div id="address">
-            <ul>
-                <li>
-                    <i class="far fa-building"></i>
-                    <div>Tolosa<br />
-                        Zumardi auzoa
-                    </div>
+                <li><a
+                        href="https://www.google.com/maps/place/Tolosaldea+Lanbide+Heziketako+Ikastetxe+Integratua/@43.1489944,-2.070771,17z/data=!3m1!4b1!4m6!3m5!1s0xd504b6900588037:0xbaa343d5f58fb872!8m2!3d43.1489905!4d-2.0681961!16s%2Fg%2F1z44bdkm5?entry=ttu"><span>Kokapena</span></a>
                 </li>
 
             </ul>
         </div>
 
+        <iframe
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2910.882606135166!2d-2.0707710233670387!3d43.14899438489461!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd504b6900588037%3A0xbaa343d5f58fb872!2sTolosaldea%20Lanbide%20Heziketako%20Ikastetxe%20Integratua!5e0!3m2!1ses!2ses!4v1709019614006!5m2!1ses!2ses"
+            width="400" height="300" style="border:0;" allowfullscreen="" loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"></iframe>
     </footer>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script src="ScriptIT.js"></script>

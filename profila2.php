@@ -43,7 +43,8 @@ require 'connection.php';
             </div>
 
             <div class="mainMenu">
-            <a href="Index_Arrunta.php"><span>Hasiera</span></a>
+                
+                <a href="Index_Arrunta.php"><span>Hasiera</span></a>
                 <a href="Egutegia.html"><span>Egutegia</span></a>
                 <a href="Taldeak.php"><span>Taldeak</span></a>
                 <a href="piraguistak.php"><span>Piraguistak</span></a>
@@ -51,7 +52,6 @@ require 'connection.php';
                 <a href="Klasifikazioa.php"><span>Klasifikazioa</span></a>
                 <a href="ProfilArrunta.php"><span>Profila</span></a>
                 <a href="logout.php">Saioa Itxi</a>
-
 
             </div class="mainMenu">
         </nav>
@@ -63,54 +63,54 @@ require 'connection.php';
 
         </section>
         <?php
-if (isset($_POST['action'])) {
-    $action = $_POST['action'];
-    $fid = isset($_POST['fid']) ? $_POST['fid'] : null;
+        if (isset($_POST['action'])) {
+            $action = $_POST['action'];
+            $fid = isset($_POST['fid']) ? $_POST['fid'] : null;
 
 
-    switch ($action) {
-        case 'izenaaldatu': 
-            ?>
-            <form method="POST" action="izena2.php">
-     
-                Izen berria: <input type="text" name="izen_berria"><br>
-                <input type="submit" />
-            </form>
-            <?php
-            break;
-        case 'abizenaaldatu':
-            ?>
-            <form method="POST" action="abizena2.php">
-             
-                Abizen berria: <input type="text" name="abizen_berria"><br>
-                <input type="submit" />
-            </form>
-            <?php
-            break;
-        case 'pasahitzaaldatu':
-            ?>
-            <form method="POST" action="pasahitza2.php">
-      
-                Pasahitz berria: <input type="password" name="pasahitz_berria"><br>
-                <input type="submit" />
-            </form>
-            <?php
-            break;
-        case 'ezabatuarrunta':
-            ?>
-            <form method="POST" action="Ezabatu.php" id="deleteForm">
+            switch ($action) {
+                case 'izenaaldatu':
+                    ?>
+                    <form method="POST" action="izena2.php">
 
-                <button type="submit" onclick="return confirm('¿Seguro zaude ezabatu nahi duzula?')">Ezabatu</button>
-                <button type="button" onclick="ezabatuez()">Ezeztatu</button>
-            </form>
-            <?php
-            break;
-        default:
-   
-            break;
-    }
-}
-?>
+                        Izen berria: <input type="text" name="izen_berria"><br>
+                        <input type="submit" />
+                    </form>
+                    <?php
+                    break;
+                case 'abizenaaldatu':
+                    ?>
+                    <form method="POST" action="abizena2.php">
+
+                        Abizen berria: <input type="text" name="abizen_berria"><br>
+                        <input type="submit" />
+                    </form>
+                    <?php
+                    break;
+                case 'pasahitzaaldatu':
+                    ?>
+                    <form method="POST" action="pasahitza2.php">
+
+                        Pasahitz berria: <input type="password" name="pasahitz_berria"><br>
+                        <input type="submit" />
+                    </form>
+                    <?php
+                    break;
+                case 'ezabatuarrunta':
+                    ?>
+                    <form method="POST" action="Ezabatu.php" id="deleteForm">
+
+                        <button type="submit" onclick="return confirm('¿Seguro zaude ezabatu nahi duzula?')">Ezabatu</button>
+                        <button type="button" onclick="ezabatuez()">Ezeztatu</button>
+                    </form>
+                    <?php
+                    break;
+                default:
+
+                    break;
+            }
+        }
+        ?>
 </body>
 <script>
     function ezabatubai() {
