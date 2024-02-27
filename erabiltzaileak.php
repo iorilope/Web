@@ -16,6 +16,7 @@ $erabiltzaileak = $erabiltzaileakQuery->fetchAll();
     <title>Urpera Piraguismoa</title>
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="./css/tablestyle.css">
+    <link rel="stylesheet" href="./css/profila.css">
 
 </head>
 
