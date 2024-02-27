@@ -1,37 +1,45 @@
-# MySQL Workbench Datu-Basea Erabilera 
+#   
+XAMPP bidezko PHP web orria erabiltzeko jarraibideak
 
-## Sarrera
+Ongi etorri PHPn garatutako gure web orrira! Jarraian, XAMPP ingurunea konfiguratzeko eta erabiltzeko jarraibideak emango dizkizugu urratsez urrats, orria zure makinan modu lokalean exekutatzeko.
 
-README hau MySQL Workbench-en datu-base bat erabiltzeko oinarrizko urratsen bidez gidatuko zaitu.
+## Aurretiazko betekizunak👁
 
-## Baldintzak
+Ziurtatu XAMPP instalatuta duzula zure sisteman urrats hauek jarraitu aurretik.
 
-Tutorial hau jarraitzeko, beharrezkoa da:
+## Konfiguraziorako urratsak⚙
 
-- MySQL Workbench instalatuta izatea
-- MySQL datu-base baterako sarbidea izatea
+1. **Iturburu-kodea deskargatzea**
+    
+    - Klonatu edo deskargatu web orriaren gordailua GitHub-etik.
+    - [https://github.com/iorilope/Web]()
+      
+2. **Fitxategien kokapena**
+    
+    - Jarri deskargatutako fitxategiak zure XAMPP instalazioaren `htdocs￮ direktorioan. Oro har, ibilbidea `C:\xampp\htdocs, Windows sistemetan edo Linux sistemetan.
+3. **XAMPPren hasiera**
+    
+    - Hasi XAMPP eta ziurtatu Apache eta MySQL zerbitzuak aktibo daudela.
+4. Datu Basea
+    
+    - Web orriak datu-base bat erabiltzen badu, datu-base bat sortzen du MySQLn eta beharrezko taulak eta datuak inportatzen ditu. MySQLren administrazio-interfazearen bidez egin dezakezu hori, edo phpMyAdmin bezalako tresnak erabiliz.
+5. **Konexio-fitxategia konfiguratzea**
+    
+    - Web orriak datu-basera konektatzeko fitxategia badu, ziurtatu konexio-xehetasunak (datu-basearen izena, erabiltzailea, pasahitza, host-a) behar bezala konfiguratuta daudela.
+6. **Orrialdera sartu**
+    
+    - Ireki zure web nabigatzailea eta bisitatu http://localhost/repositorioa. Doitu URLa zure proiektuaren egituraren arabera.
+7. **Aztertu orrialdea**
+    
+    - Nabigatu web orrian eta egin beharrezko ekintzak. Ziurtatu dena espero bezala dabilela.
 
-## Datu-basea konektatzea
+## Arazo arruntak❗
 
-1. Ireki MySQL Workbench.
-2. MySQL Connections atalean, egin klik **+** atalean konexio berri bat gehitzeko.
-3. Sartu informazio hau:
-   - Konexioaren izena: Konexioa identifikatzeko izen bat.
-   - Host: IP helbidea edo datu-basearen zerbitzariaren izena.
-   - Portua: Datu-baseko portua (lehenetsita, 3306).
-   - Erabiltzailea: Datu-basearen erabiltzaile-izena.
-   - Pasahitza: Datu-basearen pasahitza.
-4. Egin klik **Test Connection**-en konexioa egiaztatzeko.
-5. Sakatu **OK** konexioa gordetzeko.
+- **Erabiltzen ari garen portua:** 80. atakarekin arazoak aurkitzen badituzu, baliteke beste programa bat erabiltzen ari izatea. Apacheko portua alda dezakezu XAMPPren konfigurazioan.
+    
+- **Artxibo-baimenak:**  Ziurtatu fitxategiek eta direktorioek Apachek irakurtzeko baimen egokiak dituztela.
+    
+- **Datu-basera konektatzeko erroreak:** Egiaztatu datu-basera konektatzeko konfigurazioak zure fitxategian.
+    
 
-
-## SQL fitxategia inportatzea
-
-1. Ireki MySQL Workbench.
-2. Egin klik **File** eta gero **Run SQL Script** hautatu.
-3. Hautatu SQL fitxategia eta egin klik **Run** botoian.
-
-## Baliabide Gehigarriak
-
-- MySQL Workbench-en dokumentazio ofiziala: [MySQL Workbench dokumentazioa](https://dev.mysql.com/doc/workbench/en/)
-- MySQL Workbench-en tutorialak: [MySQL Workbench tutorialak](https://dev.mysql.com/doc/workbench/en/)
+Siguiendo estos pasos, deberías poder ejecutar la página web PHP localmente en tu máquina utilizando XAMPP. ¡Disfruta explorando y desarrollando en tu entorno de desarrollo local!
