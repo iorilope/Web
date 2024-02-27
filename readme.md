@@ -1,5 +1,4 @@
-#   
-XAMPP bidezko PHP web orria erabiltzeko jarraibideak
+#   XAMPP bidezko PHP web orria erabiltzeko jarraibideak
 
 Ongi etorri PHPn garatutako gure web orrira! Jarraian, XAMPP ingurunea konfiguratzeko eta erabiltzeko jarraibideak emango dizkizugu urratsez urrats, orria zure makinan modu lokalean exekutatzeko.
 
