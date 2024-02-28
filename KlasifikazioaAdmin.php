@@ -55,6 +55,7 @@ $Klasifikazioak = $KlasifikazioaQuery->fetchAll();
                 <a href="TxapelketakAdmin.php"><span>Txapelketak</span></a>
                 <a href="KlasifikazioaAdmin.php"><span>Klasifikazioa</span></a>
                 <a href="ProfilArrunta.php"><span>Erabiltzaileak</span></a>
+                <a href="http://localhost/phpmyadmin/index.php?route=/database/structure&db=piraguismo"><span>DBKS</span></a>
                 <a href="logout.php">Saioa Itxi</a>
 
             </div class="mainMenu">

@@ -315,7 +315,45 @@ h5 {
   font-weight: 300;
 }
 
+.topnav {
+  overflow: hidden;
+  background-color: #333;
+  padding: 14px 16px; /* Add padding for better spacing */
+}
 
+.topnav a {
+  float: left; /* Remove for responsive layout */
+  display: block;
+  color: #f2f2f2;
+  text-align: center;
+  text-decoration: none;
+  font-size: 17px;
+  padding: 10px; /* Adjust padding to fit within the menu bar */
+}
+
+.topnav a:hover {
+  background-color: #ddd;
+  color: black;
+}
+
+.topnav a.active {
+  background-color: #04AA6D;
+  color: white;
+}
+
+.close-menu {
+  display: block;
+  float: right;
+  margin-top: 5px;
+  padding: 10px;
+  background-color: #ddd;
+  color: #333;
+  text-decoration: none;
+}
+
+.close-menu:hover {
+  background-color: #bbb;
+}
 
 
 /* Desktops and laptops ----------- */
@@ -455,66 +493,21 @@ h5 {
     padding-right: 1.5em;
 }
 }
+.main-navbar {
+  display: block;
+  position: relative;
+}
+
+.main-menu {
+  text-align: center;
+}
 
 /* iPads to Smartphone for Common Elements ----------- */
 @media only screen and (max-width: 1024px) {
-  nav {
-      padding: 0;
-  }
+ 
 
-  .menu-btn-3 {
-    display: block;
-}
 
-  .menu-btn-3 span,
-  .menu-btn-3 span::before,
-  .menu-btn-3 span::after {
-      background: #fff;
-      content: "";
-      position: absolute;
-      width: 40px;
-      height: 6px;
-      margin-top: 13px;
 
-      -webkit-transform: rotate(180deg);
-      transform: rotate(180deg);
-
-      -webkit-transition: 0.5s ease-in-out;
-      transition: 0.5s ease-in-out;
-  }
-
-  .menu-btn-3 span::before {
-      margin-top: -12px;
-  }
-  .mainMenu {
-    display: none; /* Initially hide the menu */
-}
-
-.mainMenu.show-menu {
-    display: block; /* Make the menu visible when the class is added */
-}
-
-  .menu-btn-3 span::after {
-      margin-top: 12px;
-  }
-
-  .menu-btn-3.active span {
-      background: transparent;
-  }
-
-  .menu-btn-3.active span::before {
-      margin-top: 0;
-
-      -webkit-transform: rotate(45deg);
-      transform: rotate(45deg);
-  }
-
-  .menu-btn-3.active span::after {
-      -webkit-transform: rotate(-45deg);
-      transform: rotate(-45deg);
-
-      margin-top: 0;
-  }
 
   #intro-info {
       width: 40%;
@@ -538,10 +531,7 @@ h5 {
       height: 290px;
   }
 
-  #topHeader {
-      position: relative;
-      padding-bottom: 0;
-  }
+ 
 
   #topHeader .logo {
       position: absolute;
@@ -554,69 +544,7 @@ h5 {
       padding-left: 1em;
   }
 
-  .mainMenu {
-    display: none;
-    flex-direction: column;
-    position: absolute;
-    top: 60px; /* Adjust as needed */
-    left: 0;
-    width: 100%;
-    background-color: #b92d2d;
-    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-}
-
-  .mainMenu.active {
-      padding-top: 5em;
-  }
-  .mainMenu a {
-    padding: 15px;
-    text-align: center;
-    text-decoration: none;
-    color: #333;
-    display: block;
-}
-
-  .mainMenu a:last-child {
-      background-color: #ff6962;
-      color: #fff;
-      border-color: #fff;
-      width: 120px;
-      float: right;
-      text-align: center;
-      margin-top: 20px;
-  }
-
-  .mainMenu a.active {
-      pointer-events: auto;
-      line-height: 1.3;
-      padding-top: 15px;
-      padding-bottom: 15px;
-      opacity: 1;
-      visibility: visible;
-  }
-  .mainMenu a:hover {
-    background-color: #ddd;
-}
-
-  .mainMenu a.active:hover {
-      background-color: #ff6962;
-  }
-
-  .mainMenu a.active:first-child {
-      border-top: 1px solid;
-      margin-top: 18px;
-      padding-top: 30px;
-  }
-
-  .mainMenu a span {
-      color: #b82929;
-  }
-  .mainMenu a:after {
-      display: none;
-  }
-  .mainMenu.show-menu {
-    display: flex;
-}
+  
 
   .brand-logos div {
       overflow-x: auto;
@@ -729,6 +657,7 @@ h5 {
     width: 100%;
     padding-bottom: 1em;
   }
+  
 }
 
 
@@ -1022,6 +951,7 @@ h5 {
   }
 }
 
+
 /* Smartphones (portrait and landscape) ----------- */
 @media only screen and (max-width: 480px) {
   #topHeader .logo {
@@ -1038,9 +968,7 @@ h5 {
     height: 280px;
   }
 
-  .mainMenu a.active:first-child {
-    margin-top: 15px;
-  }
+  
 
   section {
     padding: 0 1em 3em;
@@ -1172,5 +1100,28 @@ h5 {
 
   .slider img {
     height: 180px;
+  }
+}
+@media screen and (max-width: 600px) {
+  .topnav a {
+    float: none; /* Remove float for responsive layout */
+    display: block;
+    text-align: left;
+  }
+
+  .topnav .icon {
+    display: block;
+    float: right;
+    margin-top: 5px;
+  }
+
+  .topnav.responsive {
+    position: relative;
+  }
+
+  .topnav.responsive .icon {
+    position: absolute;
+    right: 10px; /* Adjust positioning slightly */
+    top: 10px; /* Adjust positioning slightly */
   }
 }

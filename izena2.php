@@ -1,10 +1,6 @@
 <?php
 session_start();
 require 'connection.php';
-
-
-
-
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -73,11 +69,11 @@ require 'connection.php';
                 if ($conn->connect_error) {
                     die("Connection failed: " . $conn->connect_error);
                 }
-                /*Hemen, gure datu basearekin konexioa sortzen dugu, ondoren, bertako datuak atzitu ahal izateko*/
+                /*Hemen, formularioko datuak eskuratzen ditugu*/
                 $izena = $_POST['izen_berria'];
                 $email = $_SESSION["inputemail"];
 
-                /*Hemen, aurreko orrian erabilitako aldagaiak ekartzen ditugu eta hauek beste aldagai batean gordetzen ditugu*/
+                /*Hemen, aldaketa egiten dugu*/
 
                 $Aldaketa = "UPDATE erabiltzailea set Izena='$izena' WHERE Email='$email'";
 

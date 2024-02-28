@@ -72,9 +72,10 @@ require 'connection.php';
                     die("Connection failed: " . $conn->connect_error);
                 }
 
+                //Lortu erabiltzailearen id-a
                 $id = $_POST['fid'];
 
-
+                //Erabiltzailea ezabatu
                 $Aldaketa = "delete from  erabiltzailea WHERE Id='$id'";
 
                 if (mysqli_query($conn, $Aldaketa)) {

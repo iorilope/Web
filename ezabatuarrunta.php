@@ -70,6 +70,7 @@ $profilakresult = $profilakquery->fetchAll();
 </body>
 
 <script>
+    //Erabiltzailea ezabatu baino lehen ziur gauden galdetuko digu
     function ezabatubai() {
         var confirmacion = confirm("¿Seguro zaude ezabatu nahi duzula?");
         if (confirmacion) {
@@ -78,7 +79,7 @@ $profilakresult = $profilakquery->fetchAll();
     }
 
     function ezabatuez() {
-        // Aquí puedes redirigir al index o realizar alguna otra acción si el usuario decide cancelar
+
         window.location.href = 'index.php';
     }
 </script>

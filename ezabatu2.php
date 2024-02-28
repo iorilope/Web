@@ -70,10 +70,11 @@ require 'connection.php';
                 if ($conn->connect_error) {
                     die("Connection failed: " . $conn->connect_error);
                 }
-
+                //Formulariotak pasatako datuak lortu
                 $pasahitza = $_POST['pasahitz_berria'];
                 $email = $_SESSION["inputemail"];
 
+                //Erabiltzailea ezabatu
                 $Aldaketa = "delete from  erabiltzailea WHERE Email='$email'";
 
                 if (mysqli_query($conn, $Aldaketa)) {

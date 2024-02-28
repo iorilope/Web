@@ -2,6 +2,7 @@
 session_start();
 require 'connection.php';
 
+//Erabiltzaile guztiak hartu administratzaileak izan ezik
 $erabiltzaileakQuery = $conn->prepare("SELECT * from erabiltzailea where Mota <> 'Admin'");
 $erabiltzaileakQuery->execute();
 $erabiltzaileak = $erabiltzaileakQuery->fetchAll();
@@ -72,6 +73,7 @@ $erabiltzaileak = $erabiltzaileakQuery->fetchAll();
                     </thead>
                     <tbody>
 
+                        <!-- Datu baseko erabiltzaile guztiak erakutsi administratzaileak ezik -->
                         <?php foreach ($erabiltzaileak as $index => $erabiltzaile): ?>
                             <tr>
                                 <td align="center">

@@ -66,7 +66,7 @@ $id = $_POST['fid'];
             $action = $_POST['action'];
             $fid = isset($_POST['fid']) ? $_POST['fid'] : null;
 
-            // Realizar acciones específicas basadas en el valor de $action
+            // Pasatutako Id-a eta aukeratutako botoiaren arabera gauza bat edo bestea eguneratuko dugu
             switch ($action) {
                 case 'izenaaldatu':
                     ?>
@@ -99,19 +99,19 @@ $id = $_POST['fid'];
                     ?>
                     <form method="POST" action="EzabatuAdmin2.php" id="deleteForm">
                         <input type="hidden" name="fid" value="<?php echo $fid; ?>">
-                        <button type="submit" onclick="return confirm('¿Seguro que deseas eliminar?')">Ezabatu</button>
+                        <button type="submit" onclick="return confirm('¿Seguro zaude ezabatu nahi duzula?')">Ezabatu</button>
                         <button type="button" onclick="ezabatuez()">Ezeztatu</button>
                     </form>
                     <?php
                     break;
                 default:
-                    // Acción predeterminada o manejo de error
                     break;
             }
         }
         ?>
 </body>
 <script>
+    //Skript honen bidez pop up bat ikusiko dugu ziur gauden ezabatzeko galdetuz
     function ezabatubai() {
         var confirmacion = confirm("¿Seguro zaude ezabatu nahi duzula?");
         if (confirmacion) {

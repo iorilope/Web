@@ -8,9 +8,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     require 'connection.php';
 
+
+    //Konprobatu sartutako Email-a eta pasahitza datubasean dauden
     $query = "SELECT * FROM erabiltzailea WHERE Email='$email' AND Pasahitza='$password'";
     $result = $conn->query($query);
 
+
+
+    //Erabiltzaile motaren arabera erabiltzaileak index desberdin bat ikusiko du
     if ($result->rowCount() > 0) {
 
         $row = $result->fetch(PDO::FETCH_ASSOC);
@@ -23,7 +28,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
             header("Location: Index_Arrunta.php");
         } else {
-            // Tipo de usuario desconocido
+            
             echo "Erabiltzaile mota ezezaguna";
         }
     } else {

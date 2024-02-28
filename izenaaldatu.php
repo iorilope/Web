@@ -4,6 +4,7 @@ require 'connection.php';
 
 $inputEmail = filter_var($_SESSION["inputemail"], FILTER_SANITIZE_EMAIL);
 
+//Erabiltzaile guztiak lortzen ditugu, administratzaileak izan ezik
 $profilakquery = $conn->prepare("SELECT * FROM erabiltzailea WHERE Email = :inputEmail");
 $profilakquery->bindParam(':inputEmail', $inputEmail, PDO::PARAM_STR);
 $profilakquery->execute();

@@ -111,10 +111,7 @@
             </ul>
         </div>
 
-        <iframe
-            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2910.882606135166!2d-2.0707710233670387!3d43.14899438489461!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd504b6900588037%3A0xbaa343d5f58fb872!2sTolosaldea%20Lanbide%20Heziketako%20Ikastetxe%20Integratua!5e0!3m2!1ses!2ses!4v1709019614006!5m2!1ses!2ses"
-            width="400" height="300" style="border:0;" allowfullscreen="" loading="lazy"
-            referrerpolicy="no-referrer-when-downgrade"></iframe>
+      
     </footer>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script src="ScriptIT.js"></script>

@@ -67,15 +67,14 @@ require 'connection.php';
                 if ($conn->connect_error) {
                     die("Connection failed: " . $conn->connect_error);
                 }
-                /*Hemen, gure datu basearekin konexioa sortzen dugu, ondoren, bertako datuak atzitu ahal izateko*/
+                /*Hemen, gure formularioko datuak hartzen ditugu*/
                 $abizena = $_POST['abizen_berria'];
                 $email = $_SESSION["inputemail"];
 
-                /*Hemen, aurreko orrian erabilitako aldagaiak ekartzen ditugu eta hauek beste aldagai batean gordetzen ditugu*/
+                /*Hemen, aurreko orrian erabilitako aldagaiak ekartzen ditugu eta hauekin datuak eguneratzen ditugu*/
 
                 $Aldaketa = "UPDATE erabiltzailea set Abizena='$abizena' WHERE Email='$email'";
 
-                /*Hemen, "ikasgaiak" taulan izena aldatzeko funtzio bat sortzen dugu */
 
                 if (mysqli_query($conn, $Aldaketa)) {
                     echo "<h2>Erabiltzailea eguneratu da</h2>";

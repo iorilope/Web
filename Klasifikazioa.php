@@ -2,6 +2,9 @@
 session_start();
 require 'connection.php';
 
+//kontsulta honen Helburua  "txapelketa" taula osoa , modalitate mota, parte hartzeko denbora eta 
+//taldearen izena barne. Ezkerreko batasunek "txapelketako" erregistroak sartzeko aukera ematen dute, 
+//baita beste tauletan korrespondentziarik ez badago ere.
 $KlasifikazioaQuery = $conn->prepare("SELECT txapelketa.*,modalitatea.Mota, parte_hartu.Denbora AS ParteHartuDenbora, taldea.Izena AS TaldeaIzena
                                     FROM txapelketa
                                     LEFT JOIN modalitatea ON txapelketa.Modalitatea_ID_M = modalitatea.ID_M

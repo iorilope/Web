@@ -3,6 +3,7 @@ session_start();
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
+    //Formulariotikan erregistroko datuak pasa
     $izena = $_POST["fizena"];
     $pasahitza = $_POST["fpasahitza"];
     $abizena = $_POST["fabizena"];
@@ -24,6 +25,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         die("Connection failed: " . $conn->connect_error);
     }
 
+    //Formulariotikan pasatako datuak erabiltzaile gisa sartu
     $query = "INSERT INTO erabiltzailea (Izena, Abizena, Email, Pasahitza, Mota) VALUES ('$izena', '$abizena', '$email', '$pasahitza', 'Arrunta')";
 
     if ($conn->query($query)) {

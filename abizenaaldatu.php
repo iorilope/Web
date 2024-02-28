@@ -4,6 +4,8 @@ require 'connection.php';
 
 $inputEmail = filter_var($_SESSION["inputemail"], FILTER_SANITIZE_EMAIL);
 
+//Kontsulta honen bidez gure erabiltzailearen profilaren datuak eskuratzen ditugu
+
 $profilakquery = $conn->prepare("SELECT * FROM erabiltzailea WHERE Email = :inputEmail");
 $profilakquery->bindParam(':inputEmail', $inputEmail, PDO::PARAM_STR);
 $profilakquery->execute();
@@ -65,6 +67,8 @@ $profilakresult = $profilakquery->fetchAll();
                 <form method="POST" action="abizena2.php">
                     Erabiltzaile Abizena:
                     <select type="text" name="fabizena">
+
+                        //Hemen momentuan dugun abizena ikusiko dugu
                         <?php foreach ($profilakresult as $index => $profila): ?>
                             <option value='<?php echo $profila["Abizena"]; ?>'>
                                 <?php echo $profila["Abizena"]; ?>
