@@ -1,13 +1,11 @@
 function toggleMenu() {
     var menu = document.querySelector('.mainMenu');
-    menu.classList.toggle('show-menu');
+
+    // Add class "show-menu" to display the menu
+    if (!menu.classList.contains('show-menu')) {
+        menu.classList.add('show-menu');
+    } else {
+        // Remove class "show-menu" to hide the menu
+        menu.classList.remove('show-menu');
+    }
 }
-
-document.addEventListener("DOMContentLoaded", function() {
-    var menuBtn = document.querySelector('.menu-btn-3');
-    var mainMenu = document.querySelector('.mainMenu');
-
-    menuBtn.addEventListener('click', function() {
-        mainMenu.classList.toggle('show-menu');
-    });
-});
