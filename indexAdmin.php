@@ -48,7 +48,7 @@ session_start();
                 <a href="TxapelketakAdmin.php"><span>Txapelketak</span></a>
                 <a href="KlasifikazioaAdmin.php"><span>Klasifikazioa</span></a>
                 <a href="erabiltzaileak.php"><span>Erabiltzaileak</span></a>
-                <a href="http://localhost/phpmyadmin/index.php?route=/database/structure&db=piraguismo"><span>DBKS</span></a>
+                <a href="http://localhost/phpmyadmin/index.php?route=/database/structure&db=piraguismo" target="_blank"><span>DBKS</span></a>
                 <a href="logout.php">Saioa Itxi</a>
 
             </div class="mainMenu">
