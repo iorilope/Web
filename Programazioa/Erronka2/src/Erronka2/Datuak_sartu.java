@@ -269,23 +269,23 @@ public class Datuak_sartu {
 						String 	fitxategizena	= 	JOptionPane.showInputDialog("Sartu fitxategiaren izena");
 						//Fitxategiaren izena galdetzen da
 
-						while (fitxategizena == null || fitxategizena.isEmpty()) {
+						while (fitxategizena == null || fitxategizena.isEmpty() || fitxategizena == ".txt") {
 
 							fitxategizena =JOptionPane.showInputDialog("Fitxategiak izena eduki behar du!");
 							//Fitxategizena aldagaian ez bada ezer gorde mezu bat inprimatuko da eta beriz galdetuko du
 						}
 
-						File izena = new File(fitxategihelbidea,fitxategizena);
+						File izena = new File(fitxategihelbidea,fitxategizena+".txt");
 						//Fitxategiaren izena eta helbidea gordetzen da
 
 						while (izena.exists()) {
 
 							fitxategizena =JOptionPane.showInputDialog("Fitxategiaren izena iada existitzen da, jarri beste bat.");
-							izena = new File(fitxategihelbidea,fitxategizena);
+							izena = new File(fitxategihelbidea,fitxategizena+".txt");
 						}
 						//Fitxategi izen hori helbide horretan existitzen den bitartean, begizta jarraituko du
 
-						String ruta = fitxategihelbidea+ File.separator + fitxategizena;
+						String ruta = fitxategihelbidea+ File.separator + fitxategizena +".txt";
 						//Fitxategiaren helbide absolutua eta honen izena aldagai berdinean gordetzen da "\"-kin elkartuz
 
 						try {	  
@@ -425,23 +425,23 @@ public class Datuak_sartu {
 						String 	fitxategizena	= 	JOptionPane.showInputDialog("Sartu fitxategiaren izena");
 						//Fitxategiaren izena galdetzen da
 
-						while (fitxategizena == null || fitxategizena.isEmpty()) {
+						while (fitxategizena == null || fitxategizena.isEmpty() || fitxategizena == ".txt") {
 
 							fitxategizena =JOptionPane.showInputDialog("Fitxategiak izena eduki behar du!");
 							//Fitxategizena aldagaian ez bada ezer gorde mezu bat inprimatuko da eta beriz galdetuko du
 						}
 
-						File izena = new File(fitxategihelbidea,fitxategizena);
+						File izena = new File(fitxategihelbidea,fitxategizena+".txt");
 						//Fitxategiaren izena eta helbidea gordetzen da
 
 						while (izena.exists()) {
 
 							fitxategizena =JOptionPane.showInputDialog("Fitxategiaren izena iada existitzen da, jarri beste bat.");
-							izena = new File(fitxategihelbidea,fitxategizena);
+							izena = new File(fitxategihelbidea,fitxategizena+".txt");
 						}
 						//Fitxategi izen hori helbide horretan existitzen den bitartean, begizta jarraituko du
 
-						String ruta = fitxategihelbidea+ File.separator + fitxategizena;
+						String ruta = fitxategihelbidea+ File.separator + fitxategizena +".txt";
 						//Fitxategiaren helbide absolutua eta honen izena aldagai berdinean gordetzen da "\"-kin elkartuz
 
 						try {	  
@@ -585,23 +585,23 @@ public class Datuak_sartu {
 						String 	fitxategizena	= 	JOptionPane.showInputDialog("Sartu fitxategiaren izena");
 						//Fitxategiaren izena galdetzen da
 
-						while (fitxategizena == null || fitxategizena.isEmpty()) {
+						while (fitxategizena == null || fitxategizena.isEmpty() || fitxategizena == ".txt") {
 
 							fitxategizena =JOptionPane.showInputDialog("Fitxategiak izena eduki behar du!");
 							//Fitxategizena aldagaian ez bada ezer gorde mezu bat inprimatuko da eta beriz galdetuko du
 						}
 
-						File izena = new File(fitxategihelbidea,fitxategizena);
+						File izena = new File(fitxategihelbidea,fitxategizena+".txt");
 						//Fitxategiaren izena eta helbidea gordetzen da
 
 						while (izena.exists()) {
 
 							fitxategizena =JOptionPane.showInputDialog("Fitxategiaren izena iada existitzen da, jarri beste bat.");
-							izena = new File(fitxategihelbidea,fitxategizena);
+							izena = new File(fitxategihelbidea,fitxategizena+".txt");
 						}
 						//Fitxategi izen hori helbide horretan existitzen den bitartean, begizta jarraituko du
 
-						String ruta = fitxategihelbidea+ File.separator + fitxategizena;
+						String ruta = fitxategihelbidea+ File.separator + fitxategizena +".txt";
 						//Fitxategiaren helbide absolutua eta honen izena aldagai berdinean gordetzen da "\"-kin elkartuz
 
 						try {	  
