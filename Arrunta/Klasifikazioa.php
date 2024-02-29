@@ -1,19 +1,17 @@
-<!DOCTYPE html>
 <?php
 session_start();
-require 'connection.php';
+require '../connection.php';
 
-// Taldeak KONTSULTATU
-$taldekodeQuery = $conn->prepare("SELECT DISTINCT Taldea_Kodea FROM piraguista");
-$taldekodeQuery->execute();
-$taldekodeResult = $taldekodeQuery->fetchAll(PDO::FETCH_COLUMN);
-
-// Piraguistak KONTSULTATU
-$piraguistakQuery = $conn->prepare("SELECT piraguista.*, taldea.Izena as TaldeIzena
-                                    FROM piraguista
-                                    INNER JOIN taldea  ON piraguista.Taldea_Kodea = taldea.Kodea");
-$piraguistakQuery->execute();
-$piraguistak = $piraguistakQuery->fetchAll();
+//kontsulta honen Helburua  "txapelketa" taula osoa , modalitate mota, parte hartzeko denbora eta 
+//taldearen izena barne. Ezkerreko batasunek "txapelketako" erregistroak sartzeko aukera ematen dute, 
+//baita beste tauletan korrespondentziarik ez badago ere.
+$KlasifikazioaQuery = $conn->prepare("SELECT txapelketa.*,modalitatea.Mota, parte_hartu.Denbora AS ParteHartuDenbora, taldea.Izena AS TaldeaIzena
+                                    FROM txapelketa
+                                    LEFT JOIN modalitatea ON txapelketa.Modalitatea_ID_M = modalitatea.ID_M
+                                    LEFT JOIN parte_hartu ON txapelketa.ID_T = parte_hartu.Txapelketa_ID_T
+                                    LEFT JOIN taldea ON parte_hartu.Taldea_Kodea = taldea.Kodea");
+$KlasifikazioaQuery->execute();
+$Klasifikazioak = $KlasifikazioaQuery->fetchAll();
 
 ?>
 <!DOCTYPE html>
@@ -23,8 +21,8 @@ $piraguistak = $piraguistakQuery->fetchAll();
 
     <meta charset="UTF-8">
     <title>Urpera Piraguismoa</title>
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="./css/tablestyle.css">
+    <link rel="stylesheet" href="../style.css">
+    <link rel="stylesheet" href="../css/tablestyle.css">
 
 </head>
 
@@ -44,7 +42,6 @@ $piraguistak = $piraguistakQuery->fetchAll();
 
     <header id="topHeader">
 
-
         <nav>
             <span class="logo">Erabiltzailea:
                 <?php echo ($_SESSION["inputemail"]) ? $_SESSION["inputemail"] : "Ez da saioa hasi"; ?>
@@ -62,78 +59,50 @@ $piraguistak = $piraguistakQuery->fetchAll();
                 <a href="Txapelketak.php"><span>Txapelketak</span></a>
                 <a href="Klasifikazioa.php"><span>Klasifikazioa</span></a>
                 <a href="ProfilArrunta.php"><span>Profila</span></a>
-                <a href="logout.php">Saioa Itxi</a>
+                <a href="../logout.php">Saioa Itxi</a>
 
             </div class="mainMenu">
         </nav>
 
-        <section id="Taldeak">
+        <section id="Txapelketak">
             <div id="new-taldea-info">
                 <span></span>
                 <table class="styled-table">
-
-                    <thead>
-                        <tr>
-                            <th align="center">Izena</th>
-                            <th>Abizena</th>
-                            <th>Generoa</th>
-                            <th>Txapelketa Kantitatea</th>
-                            <th>Taldea</th>
-                        </tr>
-                    </thead>
-
                     <tbody>
-                        <?php foreach ($piraguistak as $index => $piraguista): ?>
+
+                        <?php foreach ($Klasifikazioak as $index => $klasifikazioa): ?>
                             <tr>
                                 <td align="center">
-                                    <?php echo $piraguista["Izena"] ?>
+                                    <?php echo $klasifikazioa["Izena"] ?>
                                 </td>
                                 <td>
-                                    <?php echo $piraguista["Abizena"] ?>
+                                    <?php echo $klasifikazioa["Kokapena"] ?>
                                 </td>
                                 <td>
-                                    <?php echo $piraguista["Generoa"] ?>
+                                    <?php echo $klasifikazioa["Data_Hasi"] ?>
                                 </td>
                                 <td>
-                                    <?php echo $piraguista["Txapelketa_kantitatea"] ?>
+                                    <?php echo $klasifikazioa["Data_Bukatu"] ?>
                                 </td>
                                 <td>
-                                    <?php echo $piraguista["TaldeIzena"] ?>
+                                    <?php echo $klasifikazioa["Zailtasun_Maila"] ?>
+                                </td>
+                                <td>
+                                    <?php echo $klasifikazioa["ParteHartuDenbora"] ?>
+
+                                </td>
+                                <td>
+                                    <?php echo $klasifikazioa["Mota"] ?>
+
                                 </td>
                             </tr>
                         <?php endforeach; ?>
-                    </tbody>
 
+                    </tbody>
                 </table>
             </div>
         </section>
-        <footer>
-            <div>
-                <span class="logo">Urpera</span>
-            </div>
 
-            <div class="col-3">
-                <span class="footer-cat">Informazioa</span>
-                <ul class="footer-cat-links">
-
-                    <li><a href=""><span>Terminoak eta Baldintzak</span></a></li>
-                    <li><a href=""><span>Kokapena</span></a></li>
-
-                </ul>
-            </div>
-            <div id="address">
-                <ul>
-                    <li>
-
-                        <i class="far fa-building"></i>
-                        <div>Tolosa<br />
-                            Zumardi auzoa</div>
-
-                    </li>
-                </ul>
-            </div>
-
-        </footer>
 </body>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 <script src="ScriptIT.js"></script>

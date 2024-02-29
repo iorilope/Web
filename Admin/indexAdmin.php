@@ -8,10 +8,10 @@ session_start();
 
     <meta charset="UTF-8">
     <title>Urpera Piraguismoa</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="../style.css">
     <?php
 
-    require 'connection.php'; ?>
+    require '../connection.php'; ?>
 </head>
 
 <body>
@@ -24,7 +24,7 @@ session_start();
         <link href="https://fonts.googleapis.com/css?family=Lato|Nanum+Gothic:700|Raleway&display=swap"
             rel="stylesheet">
         <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.9.0/css/all.css" rel="stylesheet">
-        <link rel="stylesheet" href="./css/footermapa.css">
+        <link rel="stylesheet" href="../css/footermapa.css">
         <title>Urpera Kluba</title>
 
     </head>
@@ -49,7 +49,7 @@ session_start();
                 <a href="KlasifikazioaAdmin.php"><span>Klasifikazioa</span></a>
                 <a href="erabiltzaileak.php"><span>Erabiltzaileak</span></a>
                 <a href="http://localhost/phpmyadmin/index.php?route=/database/structure&db=piraguismo" target="_blank"><span>DBKS</span></a>
-                <a href="logout.php">Saioa Itxi</a>
+                <a href="../logout.php">Saioa Itxi</a>
 
             </div class="mainMenu">
         </nav>
@@ -68,7 +68,7 @@ session_start();
         </div>
 
         <div id="development-img">
-            <img src="images/5411421.jpg" alt="Urpera Kirol Elkartea" title="Urpera Kirol Elkartea" />
+            <img src="../images/5411421.jpg" alt="Urpera Kirol Elkartea" title="Urpera Kirol Elkartea" />
         </div>
     </section>
 
@@ -110,7 +110,7 @@ session_start();
             </div>
 
             <div class="col-6 slide-img">
-                <img src="images/kayak-mujer-kayak-chicas-remando-agua.jpg" />
+                <img src="../images/kayak-mujer-kayak-chicas-remando-agua.jpg" />
             </div>
 
         </div>
@@ -120,29 +120,29 @@ session_start();
         <h1 class="sec-heading">Azken albisteak</h1>
         <div>
 
-            <a><img src="images/logo_PIBA_400x400.png" alt="Badajoz Kluba" title="Jokalari berria">
+            <a><img src="../images/logo_PIBA_400x400.png" alt="Badajoz Kluba" title="Jokalari berria">
                 <p>Badajozeko klubak Christian Romero jokalaria lortu du azken txapelketarako</p>
             </a>
-            <a><img src="images/Logo-Talak-N.webp" alt="Talak Kluba" title="Talak Irabazi">
+            <a><img src="../images/Logo-Talak-N.webp" alt="Talak Kluba" title="Talak Irabazi">
                 <p>Teresa Portelak seigarren domina lortu du Europako Txapelketa batean</p>
             </a>
-            <a><img src="images/tinywow_Club-Getxo-Kayaka_48270549.png" alt="Getxoko Kluba" title="Notizia onak">
+            <a><img src="../images/tinywow_Club-Getxo-Kayaka_48270549.png" alt="Getxoko Kluba" title="Notizia onak">
                 <p> Espainian piraguismoarentzako errendimendu handiko zentro berri bat eraiki da. </p>
             </a>
-            <a><img src="images/logo_web_astorres2x.png" alt="Astorres Kluba" title="Espainiako Selekzioa">
+            <a><img src="../images/logo_web_astorres2x.png" alt="Astorres Kluba" title="Espainiako Selekzioa">
                 <p>Amador Barranco Espainiako selekzioan jokatzen egongo da hurrengo hilabetean</p>
             </a>
-            <a><img src="images/cropped-CabeceraWeb2.jpg" alt="Cordobako Kluba" title="Piragua berriak">
+            <a><img src="../images/cropped-CabeceraWeb2.jpg" alt="Cordobako Kluba" title="Piragua berriak">
                 <p>Piragua mota berri bat garatzen da, arinagoa eta erresistenteagoa.Hurrengo hilabetean ikusiko dugu.
                 </p>
             </a>
-            <a><img src="images/descarga.jfif" alt="Aranjuezeko Kluba" title="Vr entrenamendua">
+            <a><img src="../images/descarga.jfif" alt="Aranjuezeko Kluba" title="Vr entrenamendua">
                 <p>Piraguistentzako entrenamendu-sistema birtual bat ezartzen da.</p>
             </a>
-            <a><img src="images/Logo-2017-oxio-web.jpg" alt="Oxio Kluba" title="ONG ekin lanean">
+            <a><img src="../images/Logo-2017-oxio-web.jpg" alt="Oxio Kluba" title="ONG ekin lanean">
                 <p>Piraguistak GKE baterako dirua biltzeko mobilizatzen dira.</p>
             </a>
-            <a><img src="images/logoRURALSPORT-png.png" alt="Desgaituak" title="Pertsona desgaituak">
+            <a><img src="../images/logoRURALSPORT-png.png" alt="Desgaituak" title="Pertsona desgaituak">
                 <p>Piraguismo-programa bat sortu da desgaitasuna duten pertsonentzat.</p>
             </a>
         </div>

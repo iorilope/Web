@@ -1,6 +1,7 @@
 <?php
 session_start();
-require 'connection.php';
+require '../connection.php';
+include '../function.php';
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -9,8 +10,8 @@ require 'connection.php';
 
     <meta charset="UTF-8">
     <title>Urpera Piraguismoa</title>
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="./css/tablestyle.css">
+    <link rel="stylesheet" href="../style.css">
+    <link rel="stylesheet" href="../css/tablestyle.css">
 
 </head>
 
@@ -27,10 +28,8 @@ require 'connection.php';
         <title>Urpera Kluba</title>
 
     </head>
-
     <header id="topHeader">
         <nav>
-
             <span class="logo">Erabiltzailea:
                 <?php echo ($_SESSION["inputemail"]) ? $_SESSION["inputemail"] : "Ez da saioa hasi"; ?>
             </span>
@@ -46,11 +45,11 @@ require 'connection.php';
                 <a href="piraguistak.php"><span>Piraguistak</span></a>
                 <a href="Txapelketak.php"><span>Txapelketak</span></a>
                 <a href="Klasifikazioa.php"><span>Klasifikazioa</span></a>
-                <a href="logout.php">Saioa Itxi</a>
+                <a href="http://localhost/phpmyadmin/index.php?route=/database/structure&db=piraguismo" target="_blank"><span>DBKS</span></a>
+                <a href="../logout.php">Saioa Itxi</a>
 
             </div class="mainMenu">
         </nav>
-
         <section id="profila">
             <div id="new-taldea-info">
                 <span></span>
@@ -70,17 +69,18 @@ require 'connection.php';
                 if ($conn->connect_error) {
                     die("Connection failed: " . $conn->connect_error);
                 }
-                //Formulariotak pasatako datuak lortu
-                $pasahitza = $_POST['pasahitz_berria'];
-                $email = $_SESSION["inputemail"];
+                /*Hemen, gure formularioko datuak hartzen ditugu*/
+                $abizena = Garbitu($_POST['abizen_berria']);
+                $id = Garbitu($_POST["fid"]);
 
-                //Erabiltzailea ezabatu
-                $Aldaketa = "delete from  erabiltzailea WHERE Email='$email'";
+                /*Hemen, aurreko orrian erabilitako aldagaiak ekartzen ditugu eta hauekin datuak eguneratzen ditugu*/
+
+                $Aldaketa = "UPDATE erabiltzailea set Abizena='$abizena' WHERE Id='$id'";
+
+   
 
                 if (mysqli_query($conn, $Aldaketa)) {
-                    echo "<h2>Erabiltzailea kendu da</h2>";
-                    session_destroy();
-                    header('location:index.html');
+                    echo "<h2>Erabiltzailea eguneratu da</h2>";
                 } else {
                     echo "Error: " . $Aldaketa . "<br>" . mysqli_error($conn);
                 }

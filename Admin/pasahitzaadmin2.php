@@ -1,6 +1,7 @@
 <?php
 session_start();
-require 'connection.php';
+require '../connection.php';
+include '../function.php';
 
 ?>
 <!DOCTYPE html>
@@ -49,7 +50,7 @@ require 'connection.php';
                 <a href="KlasifikazioaAdmin.php"><span>Klasifikazioa</span></a>
                 <a href="erabiltzaileak.php"><span>Erabiltzaileak</span></a>
                 <a href="http://localhost/phpmyadmin/index.php?route=/database/structure&db=piraguismo" target="_blank"><span>DBKS</span></a>
-                <a href="logout.php">Saioa Itxi</a>
+                <a href="../logout.php">Saioa Itxi</a>
 
             </div class="mainMenu">
         </nav>
@@ -74,8 +75,8 @@ require 'connection.php';
                     die("Connection failed: " . $conn->connect_error);
                 }
 
-                $pasahitza = $_POST['pasahitz_berria'];
-                $id = $_POST["fid"];
+                $pasahitza = Garbitu($_POST['pasahitz_berria']);
+                $id = Garbitu($_POST["fid"]);
 
                 $Aldaketa = "UPDATE erabiltzailea set Pasahitza='$pasahitza' WHERE Id='$id'";
 

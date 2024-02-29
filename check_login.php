@@ -1,10 +1,11 @@
 <?php
 session_start();
+include "function.php";
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
-    $email = $_POST["inputemail"];
-    $password = $_POST["inpuPassword"];
+    $email = Garbitu($_POST["inputemail"]);
+    $password = Garbitu($_POST["inpuPassword"]);
 
     require 'connection.php';
 
@@ -23,10 +24,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $_SESSION["inputemail"] = $email;
         if ($userType == "Admin") {
 
-            header("Location: indexAdmin.php");
+            header("Location: ./Admin/indexAdmin.php");
         } elseif ($userType == "Arrunta") {
 
-            header("Location: Index_Arrunta.php");
+            header("Location: ./Arrunta/Index_Arrunta.php");
         } else {
             
             echo "Erabiltzaile mota ezezaguna";

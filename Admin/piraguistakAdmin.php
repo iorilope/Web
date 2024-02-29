@@ -1,11 +1,19 @@
+<!DOCTYPE html>
 <?php
 session_start();
-require 'connection.php';
+require '../connection.php';
 
-//Erabiltzaile guztiak hartu administratzaileak izan ezik
-$erabiltzaileakQuery = $conn->prepare("SELECT * from erabiltzailea where Mota <> 'Admin'");
-$erabiltzaileakQuery->execute();
-$erabiltzaileak = $erabiltzaileakQuery->fetchAll();
+// Taldeak KONTSULTATU
+$taldekodeQuery = $conn->prepare("SELECT DISTINCT Taldea_Kodea FROM piraguista");
+$taldekodeQuery->execute();
+$taldekodeResult = $taldekodeQuery->fetchAll(PDO::FETCH_COLUMN);
+
+// Piraguistak KONTSULTATU
+$piraguistakQuery = $conn->prepare("SELECT piraguista.*, taldea.Izena as TaldeIzena
+                                    FROM piraguista
+                                    INNER JOIN taldea  ON piraguista.Taldea_Kodea = taldea.Kodea");
+$piraguistakQuery->execute();
+$piraguistak = $piraguistakQuery->fetchAll();
 
 ?>
 <!DOCTYPE html>
@@ -15,9 +23,8 @@ $erabiltzaileak = $erabiltzaileakQuery->fetchAll();
 
     <meta charset="UTF-8">
     <title>Urpera Piraguismoa</title>
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="./css/tablestyle.css">
-    <link rel="stylesheet" href="./css/profila.css">
+    <link rel="stylesheet" href="../style.css">
+    <link rel="stylesheet" href="../css/tablestyle.css">
 
 </head>
 
@@ -37,6 +44,7 @@ $erabiltzaileak = $erabiltzaileakQuery->fetchAll();
 
     <header id="topHeader">
 
+
         <nav>
             <span class="logo">Erabiltzailea:
                 <?php echo ($_SESSION["inputemail"]) ? $_SESSION["inputemail"] : "Ez da saioa hasi"; ?>
@@ -54,63 +62,50 @@ $erabiltzaileak = $erabiltzaileakQuery->fetchAll();
                 <a href="KlasifikazioaAdmin.php"><span>Klasifikazioa</span></a>
                 <a href="erabiltzaileak.php"><span>Erabiltzaileak</span></a>
                 <a href="http://localhost/phpmyadmin/index.php?route=/database/structure&db=piraguismo" target="_blank"><span>DBKS</span></a>
-                <a href="logout.php">Saioa Itxi</a>
-
+                <a href="../logout.php">Saioa Itxi</a>
 
             </div class="mainMenu">
         </nav>
 
-        <section id="Txapelketak">
+        <section id="Taldeak">
             <div id="new-taldea-info">
                 <span></span>
                 <table class="styled-table">
+
                     <thead>
                         <tr>
                             <th align="center">Izena</th>
                             <th>Abizena</th>
-                            <th>Id</th>
-                            <th>Email</th>
+                            <th>Generoa</th>
+                            <th>Txapelketa Kantitatea</th>
+                            <th>Taldea</th>
                         </tr>
                     </thead>
-                    <tbody>
 
-                        <!-- Datu baseko erabiltzaile guztiak erakutsi administratzaileak ezik -->
-                        <?php foreach ($erabiltzaileak as $index => $erabiltzaile): ?>
+                    <tbody>
+                        <?php foreach ($piraguistak as $index => $piraguista): ?>
                             <tr>
                                 <td align="center">
-                                    <?php echo $erabiltzaile["Izena"] ?>
+                                    <?php echo $piraguista["Izena"] ?>
                                 </td>
                                 <td>
-                                    <?php echo $erabiltzaile["Abizena"] ?>
+                                    <?php echo $piraguista["Abizena"] ?>
                                 </td>
                                 <td>
-                                    <?php echo $erabiltzaile["Id"] ?>
+                                    <?php echo $piraguista["Generoa"] ?>
                                 </td>
                                 <td>
-                                    <?php echo $erabiltzaile["Email"] ?>
+                                    <?php echo $piraguista["Txapelketa_kantitatea"] ?>
+                                </td>
+                                <td>
+                                    <?php echo $piraguista["TaldeIzena"] ?>
                                 </td>
                             </tr>
                         <?php endforeach; ?>
-
                     </tbody>
+
                 </table>
             </div>
-        </section>
-        <section id="profila">
-            <div id="new-taldea-info">
-                <span></span>
-                <h2>Profila editatu</h2>
-                <form action="erabiltzaileak2.php" method="post">
-                    <div class="Menu">
-                        Erabiltzailearen id-a: <input type="text" name="fid"><br>
-                    </div>
-
-                    <button type="submit" name="action" value="izenaaldatu" class="btn">Izena aldatu</button>
-                    <button type="submit" name="action" value="abizenaaldatu" class="btn">Abizena aldatu</button>
-                    <button type="submit" name="action" value="pasahitzaaldatu" class="btn">Pasahitza aldatu</button>
-                    <button type="submit" name="action" value="ezabatuarrunta" class="btn">Erabiltzailea
-                        ezabatu</button>
-                </form>
         </section>
 
 </body>

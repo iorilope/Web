@@ -1,17 +1,12 @@
 <?php
 session_start();
-require 'connection.php';
+require '../connection.php';
 
-//kontsulta honen Helburua  "txapelketa" taula osoa , modalitate mota, parte hartzeko denbora eta 
-//taldearen izena barne. Ezkerreko batasunek "txapelketako" erregistroak sartzeko aukera ematen dute, 
-//baita beste tauletan korrespondentziarik ez badago ere.
-$KlasifikazioaQuery = $conn->prepare("SELECT txapelketa.*,modalitatea.Mota, parte_hartu.Denbora AS ParteHartuDenbora, taldea.Izena AS TaldeaIzena
+$txapelketakQuery = $conn->prepare("SELECT txapelketa.*, modalitatea.Mota
                                     FROM txapelketa
-                                    LEFT JOIN modalitatea ON txapelketa.Modalitatea_ID_M = modalitatea.ID_M
-                                    LEFT JOIN parte_hartu ON txapelketa.ID_T = parte_hartu.Txapelketa_ID_T
-                                    LEFT JOIN taldea ON parte_hartu.Taldea_Kodea = taldea.Kodea");
-$KlasifikazioaQuery->execute();
-$Klasifikazioak = $KlasifikazioaQuery->fetchAll();
+                                    INNER JOIN modalitatea  ON txapelketa.Modalitatea_ID_M = modalitatea.ID_M");
+$txapelketakQuery->execute();
+$txapelketak = $txapelketakQuery->fetchAll();
 
 ?>
 <!DOCTYPE html>
@@ -21,8 +16,8 @@ $Klasifikazioak = $KlasifikazioaQuery->fetchAll();
 
     <meta charset="UTF-8">
     <title>Urpera Piraguismoa</title>
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="./css/tablestyle.css">
+    <link rel="stylesheet" href="../style.css">
+    <link rel="stylesheet" href="../css/tablestyle.css">
 
 </head>
 
@@ -41,8 +36,8 @@ $Klasifikazioak = $KlasifikazioaQuery->fetchAll();
     </head>
 
     <header id="topHeader">
-
         <nav>
+
             <span class="logo">Erabiltzailea:
                 <?php echo ($_SESSION["inputemail"]) ? $_SESSION["inputemail"] : "Ez da saioa hasi"; ?>
             </span>
@@ -59,7 +54,7 @@ $Klasifikazioak = $KlasifikazioaQuery->fetchAll();
                 <a href="Txapelketak.php"><span>Txapelketak</span></a>
                 <a href="Klasifikazioa.php"><span>Klasifikazioa</span></a>
                 <a href="ProfilArrunta.php"><span>Profila</span></a>
-                <a href="logout.php">Saioa Itxi</a>
+                <a href="../logout.php">Saioa Itxi</a>
 
             </div class="mainMenu">
         </nav>
@@ -68,42 +63,49 @@ $Klasifikazioak = $KlasifikazioaQuery->fetchAll();
             <div id="new-taldea-info">
                 <span></span>
                 <table class="styled-table">
-                    <tbody>
 
-                        <?php foreach ($Klasifikazioak as $index => $klasifikazioa): ?>
+                    <thead>
+                        <tr>
+                            <th align="center">Izena</th>
+                            <th>Kokapena</th>
+                            <th>Data Hasi</th>
+                            <th>Data Bukatu</th>
+                            <th>Zailtasun Maila</th>
+                            <th>Modalitatea</th>
+                        </tr>
+                    </thead>
+
+                    <tbody>
+                        <?php foreach ($txapelketak as $index => $txapelketa): ?>
                             <tr>
                                 <td align="center">
-                                    <?php echo $klasifikazioa["Izena"] ?>
+                                    <?php echo $txapelketa["Izena"] ?>
                                 </td>
                                 <td>
-                                    <?php echo $klasifikazioa["Kokapena"] ?>
+                                    <?php echo $txapelketa["Kokapena"] ?>
                                 </td>
                                 <td>
-                                    <?php echo $klasifikazioa["Data_Hasi"] ?>
+                                    <?php echo $txapelketa["Data_Hasi"] ?>
                                 </td>
                                 <td>
-                                    <?php echo $klasifikazioa["Data_Bukatu"] ?>
+                                    <?php echo $txapelketa["Data_Bukatu"] ?>
                                 </td>
                                 <td>
-                                    <?php echo $klasifikazioa["Zailtasun_Maila"] ?>
+                                    <?php echo $txapelketa["Zailtasun_Maila"] ?>
                                 </td>
                                 <td>
-                                    <?php echo $klasifikazioa["ParteHartuDenbora"] ?>
-
-                                </td>
-                                <td>
-                                    <?php echo $klasifikazioa["Mota"] ?>
-
+                                    <?php echo $txapelketa["Mota"] ?>
                                 </td>
                             </tr>
                         <?php endforeach; ?>
-
                     </tbody>
+
                 </table>
             </div>
         </section>
 
 </body>
+
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 <script src="ScriptIT.js"></script>
 <script src="./script.js"></script>

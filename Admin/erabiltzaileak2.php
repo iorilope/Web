@@ -1,8 +1,9 @@
 <?php
 session_start();
-require 'connection.php';
+require '../connection.php';
+include '../function.php';
 
-$id = $_POST['fid'];
+$id = Garbitu($_POST['fid']);
 
 ?>
 <!DOCTYPE html>
@@ -12,8 +13,8 @@ $id = $_POST['fid'];
 
     <meta charset="UTF-8">
     <title>Urpera Piraguismoa</title>
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="./css/tablestyle.css">
+    <link rel="stylesheet" href="../style.css">
+    <link rel="stylesheet" href="../css/tablestyle.css">
 
 </head>
 
@@ -50,7 +51,7 @@ $id = $_POST['fid'];
                 <a href="KlasifikazioaAdmin.php"><span>Klasifikazioa</span></a>
                 <a href="erabiltzaileak.php"><span>Erabiltzaileak</span></a>
                 <a href="http://localhost/phpmyadmin/index.php?route=/database/structure&db=piraguismo" target="_blank"><span>DBKS</span></a>
-                <a href="logout.php">Saioa Itxi</a>
+                <a href="../logout.php">Saioa Itxi</a>
 
 
             </div class="mainMenu">

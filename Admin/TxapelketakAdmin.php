@@ -1,19 +1,12 @@
-<!DOCTYPE html>
 <?php
 session_start();
-require 'connection.php';
+require '../connection.php';
 
-// Taldeak KONTSULTATU
-$taldekodeQuery = $conn->prepare("SELECT DISTINCT Taldea_Kodea FROM piraguista");
-$taldekodeQuery->execute();
-$taldekodeResult = $taldekodeQuery->fetchAll(PDO::FETCH_COLUMN);
-
-// Piraguistak KONTSULTATU
-$piraguistakQuery = $conn->prepare("SELECT piraguista.*, taldea.Izena as TaldeIzena
-                                    FROM piraguista
-                                    INNER JOIN taldea  ON piraguista.Taldea_Kodea = taldea.Kodea");
-$piraguistakQuery->execute();
-$piraguistak = $piraguistakQuery->fetchAll();
+$txapelketakQuery = $conn->prepare("SELECT txapelketa.*, modalitatea.Mota
+                                    FROM txapelketa
+                                    INNER JOIN modalitatea  ON txapelketa.Modalitatea_ID_M = modalitatea.ID_M");
+$txapelketakQuery->execute();
+$txapelketak = $txapelketakQuery->fetchAll();
 
 ?>
 <!DOCTYPE html>
@@ -23,8 +16,8 @@ $piraguistak = $piraguistakQuery->fetchAll();
 
     <meta charset="UTF-8">
     <title>Urpera Piraguismoa</title>
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="./css/tablestyle.css">
+    <link rel="stylesheet" href="../style.css">
+    <link rel="stylesheet" href="../css/tablestyle.css">
 
 </head>
 
@@ -43,9 +36,8 @@ $piraguistak = $piraguistakQuery->fetchAll();
     </head>
 
     <header id="topHeader">
-
-
         <nav>
+
             <span class="logo">Erabiltzailea:
                 <?php echo ($_SESSION["inputemail"]) ? $_SESSION["inputemail"] : "Ez da saioa hasi"; ?>
             </span>
@@ -54,20 +46,19 @@ $piraguistak = $piraguistakQuery->fetchAll();
             </div>
 
             <div class="mainMenu">
-
                 <a href="IndexAdmin.php"><span>Hasiera</span></a>
                 <a href="TaldeakAdmin.php"><span>Taldeak</span></a>
                 <a href="piraguistakAdmin.php"><span>Piraguistak</span></a>
                 <a href="TxapelketakAdmin.php"><span>Txapelketak</span></a>
                 <a href="KlasifikazioaAdmin.php"><span>Klasifikazioa</span></a>
-                <a href="ProfilArrunta.php"><span>Erabiltzaileak</span></a>
+                <a href="erabiltzaileak.php"><span>Erabiltzaileak</span></a>
                 <a href="http://localhost/phpmyadmin/index.php?route=/database/structure&db=piraguismo" target="_blank"><span>DBKS</span></a>
-                <a href="logout.php">Saioa Itxi</a>
+                <a href="../logout.php">Saioa Itxi</a>
 
             </div class="mainMenu">
         </nav>
 
-        <section id="Taldeak">
+        <section id="Txapelketak">
             <div id="new-taldea-info">
                 <span></span>
                 <table class="styled-table">
@@ -75,30 +66,34 @@ $piraguistak = $piraguistakQuery->fetchAll();
                     <thead>
                         <tr>
                             <th align="center">Izena</th>
-                            <th>Abizena</th>
-                            <th>Generoa</th>
-                            <th>Txapelketa Kantitatea</th>
-                            <th>Taldea</th>
+                            <th>Kokapena</th>
+                            <th>Data Hasi</th>
+                            <th>Data Bukatu</th>
+                            <th>Zailtasun Maila</th>
+                            <th>Modalitatea</th>
                         </tr>
                     </thead>
 
                     <tbody>
-                        <?php foreach ($piraguistak as $index => $piraguista): ?>
+                        <?php foreach ($txapelketak as $index => $txapelketa): ?>
                             <tr>
                                 <td align="center">
-                                    <?php echo $piraguista["Izena"] ?>
+                                    <?php echo $txapelketa["Izena"] ?>
                                 </td>
                                 <td>
-                                    <?php echo $piraguista["Abizena"] ?>
+                                    <?php echo $txapelketa["Kokapena"] ?>
                                 </td>
                                 <td>
-                                    <?php echo $piraguista["Generoa"] ?>
+                                    <?php echo $txapelketa["Data_Hasi"] ?>
                                 </td>
                                 <td>
-                                    <?php echo $piraguista["Txapelketa_kantitatea"] ?>
+                                    <?php echo $txapelketa["Data_Bukatu"] ?>
                                 </td>
                                 <td>
-                                    <?php echo $piraguista["TaldeIzena"] ?>
+                                    <?php echo $txapelketa["Zailtasun_Maila"] ?>
+                                </td>
+                                <td>
+                                    <?php echo $txapelketa["Mota"] ?>
                                 </td>
                             </tr>
                         <?php endforeach; ?>
@@ -109,6 +104,7 @@ $piraguistak = $piraguistakQuery->fetchAll();
         </section>
 
 </body>
+
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 <script src="ScriptIT.js"></script>
 <script src="./script.js"></script>

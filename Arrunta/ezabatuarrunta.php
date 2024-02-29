@@ -1,6 +1,15 @@
 <?php
 session_start();
-require 'connection.php';
+require '../connection.php';
+include '../function.php';
+
+$inputEmail = filter_var($_SESSION["inputemail"], FILTER_SANITIZE_EMAIL);
+
+$profilakquery = $conn->prepare("SELECT * FROM erabiltzailea WHERE Email = :inputEmail");
+$profilakquery->bindParam(':inputEmail', $inputEmail, PDO::PARAM_STR);
+$profilakquery->execute();
+$profilakresult = $profilakquery->fetchAll();
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -9,8 +18,8 @@ require 'connection.php';
 
     <meta charset="UTF-8">
     <title>Urpera Piraguismoa</title>
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="./css/tablestyle.css">
+    <link rel="stylesheet" href="../style.css">
+    <link rel="stylesheet" href="../css/tablestyle.css">
 
 </head>
 
@@ -27,6 +36,7 @@ require 'connection.php';
         <title>Urpera Kluba</title>
 
     </head>
+
     <header id="topHeader">
         <nav>
             <span class="logo">Erabiltzailea:
@@ -44,48 +54,35 @@ require 'connection.php';
                 <a href="piraguistak.php"><span>Piraguistak</span></a>
                 <a href="Txapelketak.php"><span>Txapelketak</span></a>
                 <a href="Klasifikazioa.php"><span>Klasifikazioa</span></a>
-                <a href="http://localhost/phpmyadmin/index.php?route=/database/structure&db=piraguismo" target="_blank"><span>DBKS</span></a>
-                <a href="logout.php">Saioa Itxi</a>
+                <a href="../logout.php">Saioa Itxi</a>
 
             </div class="mainMenu">
         </nav>
         <section id="profila">
             <div id="new-taldea-info">
                 <span></span>
-                <h2></h2>
+                <h2>Profila editatu</h2>
 
-                <?php
-                /*MySQL*/
-                $servername = "localhost";
-                $username = "root";
-                $password = "";
-                $dbname = "piraguismo";
-
-                // Create connection
-                $conn = new mysqli($servername, $username, $password, $dbname);
-
-                // Check connection
-                if ($conn->connect_error) {
-                    die("Connection failed: " . $conn->connect_error);
-                }
-                /*Hemen, gure formularioko datuak hartzen ditugu*/
-                $abizena = $_POST['abizen_berria'];
-                $id = $_POST["fid"];
-
-                /*Hemen, aurreko orrian erabilitako aldagaiak ekartzen ditugu eta hauekin datuak eguneratzen ditugu*/
-
-                $Aldaketa = "UPDATE erabiltzailea set Abizena='$abizena' WHERE Id='$id'";
-
-   
-
-                if (mysqli_query($conn, $Aldaketa)) {
-                    echo "<h2>Erabiltzailea eguneratu da</h2>";
-                } else {
-                    echo "Error: " . $Aldaketa . "<br>" . mysqli_error($conn);
-                }
-                ?>
-
+                <form method="POST" action="ezabatu2.php" id="deleteForm">
+                    <button type="button" onclick="ezabatubai()">Ezabatu</button>
+                    <button type="button" onclick="ezabatuez()">Ezeztatu</button>
+                </form>
         </section>
 </body>
+
+<script>
+    //Erabiltzailea ezabatu baino lehen ziur gauden galdetuko digu
+    function ezabatubai() {
+        var confirmacion = confirm("¿Seguro zaude ezabatu nahi duzula?");
+        if (confirmacion) {
+            document.getElementById('deleteForm').submit();
+        }
+    }
+
+    function ezabatuez() {
+
+        window.location.href = 'Index_Arrunta.php';
+    }
+</script>
 
 </html>

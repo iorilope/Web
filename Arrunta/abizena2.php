@@ -2,13 +2,7 @@
 session_start();
 require 'connection.php';
 
-$inputEmail = filter_var($_SESSION["inputemail"], FILTER_SANITIZE_EMAIL);
-
-$profilakquery = $conn->prepare("SELECT * FROM erabiltzailea WHERE Email = :inputEmail");
-$profilakquery->bindParam(':inputEmail', $inputEmail, PDO::PARAM_STR);
-$profilakquery->execute();
-$profilakresult = $profilakquery->fetchAll();
-
+include '../function.php';
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -17,8 +11,8 @@ $profilakresult = $profilakquery->fetchAll();
 
     <meta charset="UTF-8">
     <title>Urpera Piraguismoa</title>
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="./css/tablestyle.css">
+    <link rel="stylesheet" href="../style.css">
+    <link rel="stylesheet" href="../css/tablestyle.css">
 
 </head>
 
@@ -35,11 +29,8 @@ $profilakresult = $profilakquery->fetchAll();
         <title>Urpera Kluba</title>
 
     </head>
-
     <header id="topHeader">
-
         <nav>
-
             <span class="logo">Erabiltzailea:
                 <?php echo ($_SESSION["inputemail"]) ? $_SESSION["inputemail"] : "Ez da saioa hasi"; ?>
             </span>
@@ -55,21 +46,44 @@ $profilakresult = $profilakquery->fetchAll();
                 <a href="piraguistak.php"><span>Piraguistak</span></a>
                 <a href="Txapelketak.php"><span>Txapelketak</span></a>
                 <a href="Klasifikazioa.php"><span>Klasifikazioa</span></a>
-                <a href="logout.php">Saioa Itxi</a>
+                <a href="../logout.php">Saioa Itxi</a>
 
             </div class="mainMenu">
         </nav>
-
         <section id="profila">
             <div id="new-taldea-info">
                 <span></span>
-                <h2>Profila editatu</h2>
+                <h2></h2>
 
-                <form method="POST" action="pasahitza2.php">
+                <?php
+                /*MySQL*/
+                $servername = "localhost";
+                $username = "root";
+                $password = "";
+                $dbname = "piraguismo";
 
-                    Pasahitz berria: <input type="password" name="pasahitz_berria"><br>
-                    <input type="submit" />
-                </form>
+                // Create connection
+                $conn = new mysqli($servername, $username, $password, $dbname);
+
+                // Check connection
+                if ($conn->connect_error) {
+                    die("Connection failed: " . $conn->connect_error);
+                }
+                /*Hemen, gure formularioko datuak hartzen ditugu*/
+                $abizena = Garbitu($_POST['abizen_berria']);
+                $email = $_SESSION["inputemail"];
+
+                /*Hemen, aurreko orrian erabilitako aldagaiak ekartzen ditugu eta hauekin datuak eguneratzen ditugu*/
+
+                $Aldaketa = "UPDATE erabiltzailea set Abizena='$abizena' WHERE Email='$email'";
+
+
+                if (mysqli_query($conn, $Aldaketa)) {
+                    echo "<h2>Erabiltzailea eguneratu da</h2>";
+                } else {
+                    echo "Error: " . $Aldaketa . "<br>" . mysqli_error($conn);
+                }
+                ?>
 
         </section>
 </body>

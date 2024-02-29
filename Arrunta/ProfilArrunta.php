@@ -1,6 +1,6 @@
 <?php
 session_start();
-require 'connection.php';
+require '../connection.php';
 
 $inputEmail = filter_var($_SESSION["inputemail"], FILTER_SANITIZE_EMAIL);
 
@@ -17,9 +17,9 @@ $profilakresult = $profilakquery->fetchAll();
 
     <meta charset="UTF-8">
     <title>Urpera Piraguismoa</title>
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="./css/tablestyle.css">
-    <link rel="stylesheet" href="./css/profila.css">
+    <link rel="stylesheet" href="../style.css">
+    <link rel="stylesheet" href="../css/tablestyle.css">
+    <link rel="stylesheet" href="../css/profila.css">
 
 </head>
 
@@ -56,7 +56,7 @@ $profilakresult = $profilakquery->fetchAll();
                 <a href="Txapelketak.php"><span>Txapelketak</span></a>
                 <a href="Klasifikazioa.php"><span>Klasifikazioa</span></a>
                 <a href="ProfilArrunta.php"><span>Profila</span></a>
-                <a href="logout.php">Saioa Itxi</a>
+                <a href="../logout.php">Saioa Itxi</a>
 
             </div class="mainMenu">
         </nav>

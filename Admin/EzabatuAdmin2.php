@@ -1,6 +1,7 @@
 <?php
 session_start();
-require 'connection.php';
+require '../connection.php';
+include '../function.php';
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -9,8 +10,8 @@ require 'connection.php';
 
     <meta charset="UTF-8">
     <title>Urpera Piraguismoa</title>
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="./css/tablestyle.css">
+    <link rel="stylesheet" href="../style.css">
+    <link rel="stylesheet" href="../css/tablestyle.css">
 
 </head>
 
@@ -27,8 +28,10 @@ require 'connection.php';
         <title>Urpera Kluba</title>
 
     </head>
+
     <header id="topHeader">
         <nav>
+
             <span class="logo">Erabiltzailea:
                 <?php echo ($_SESSION["inputemail"]) ? $_SESSION["inputemail"] : "Ez da saioa hasi"; ?>
             </span>
@@ -38,16 +41,19 @@ require 'connection.php';
 
             <div class="mainMenu">
 
-                <a href="Index_Arrunta.php"><span>Hasiera</span></a>
-                <a href="Egutegia.html"><span>Egutegia</span></a>
-                <a href="Taldeak.php"><span>Taldeak</span></a>
-                <a href="piraguistak.php"><span>Piraguistak</span></a>
-                <a href="Txapelketak.php"><span>Txapelketak</span></a>
-                <a href="Klasifikazioa.php"><span>Klasifikazioa</span></a>
-                <a href="logout.php">Saioa Itxi</a>
+
+                <a href="IndexAdmin.php"><span>Hasiera</span></a>
+                <a href="TaldeakAdmin.php"><span>Taldeak</span></a>
+                <a href="piraguistakAdmin.php"><span>Piraguistak</span></a>
+                <a href="TxapelketakAdmin.php"><span>Txapelketak</span></a>
+                <a href="KlasifikazioaAdmin.php"><span>Klasifikazioa</span></a>
+                <a href="erabiltzaileak.php"><span>Erabiltzaileak</span></a>
+                <a href="http://localhost/phpmyadmin/index.php?route=/database/structure&db=piraguismo" target="_blank"><span>DBKS</span></a>
+                <a href="../logout.php">Saioa Itxi</a>
 
             </div class="mainMenu">
         </nav>
+
         <section id="profila">
             <div id="new-taldea-info">
                 <span></span>
@@ -67,17 +73,17 @@ require 'connection.php';
                 if ($conn->connect_error) {
                     die("Connection failed: " . $conn->connect_error);
                 }
-                /*Hemen, gure formularioko datuak hartzen ditugu*/
-                $abizena = $_POST['abizen_berria'];
-                $email = $_SESSION["inputemail"];
 
-                /*Hemen, aurreko orrian erabilitako aldagaiak ekartzen ditugu eta hauekin datuak eguneratzen ditugu*/
+                //Lortu erabiltzailearen id-a
+                $id = Garbitu($_POST['fid']);
 
-                $Aldaketa = "UPDATE erabiltzailea set Abizena='$abizena' WHERE Email='$email'";
-
+                //Erabiltzailea ezabatu
+                $Aldaketa = "delete from  erabiltzailea WHERE Id='$id'";
 
                 if (mysqli_query($conn, $Aldaketa)) {
-                    echo "<h2>Erabiltzailea eguneratu da</h2>";
+                    echo "<h2>Erabiltzailea kendu da</h2>";
+
+                    header('location:indexAdmin.html');
                 } else {
                     echo "Error: " . $Aldaketa . "<br>" . mysqli_error($conn);
                 }

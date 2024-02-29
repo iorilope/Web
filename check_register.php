@@ -1,13 +1,14 @@
 <?php
 session_start();
+include "function.php";
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     //Formulariotikan erregistroko datuak pasa
-    $izena = $_POST["fizena"];
-    $pasahitza = $_POST["fpasahitza"];
-    $abizena = $_POST["fabizena"];
-    $email = $_POST["femail"];
+    $izena = Garbitu($_POST["fizena"]);
+    $pasahitza = Garbitu($_POST["fpasahitza"]);
+    $abizena =Garbitu($_POST["fabizena"]);
+    $email = Garbitu($_POST["femail"]);
 
     require 'connection.php';
 

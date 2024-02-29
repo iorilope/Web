@@ -1,12 +1,11 @@
 <?php
 session_start();
-require 'connection.php';
+require '../connection.php';
 
-$txapelketakQuery = $conn->prepare("SELECT txapelketa.*, modalitatea.Mota
-                                    FROM txapelketa
-                                    INNER JOIN modalitatea  ON txapelketa.Modalitatea_ID_M = modalitatea.ID_M");
-$txapelketakQuery->execute();
-$txapelketak = $txapelketakQuery->fetchAll();
+//Erabiltzaile guztiak hartu administratzaileak izan ezik
+$erabiltzaileakQuery = $conn->prepare("SELECT * from erabiltzailea where Mota <> 'Admin'");
+$erabiltzaileakQuery->execute();
+$erabiltzaileak = $erabiltzaileakQuery->fetchAll();
 
 ?>
 <!DOCTYPE html>
@@ -16,8 +15,9 @@ $txapelketak = $txapelketakQuery->fetchAll();
 
     <meta charset="UTF-8">
     <title>Urpera Piraguismoa</title>
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="./css/tablestyle.css">
+    <link rel="stylesheet" href="../style.css">
+    <link rel="stylesheet" href="../css/tablestyle.css">
+    <link rel="stylesheet" href="../css/profila.css">
 
 </head>
 
@@ -36,8 +36,8 @@ $txapelketak = $txapelketakQuery->fetchAll();
     </head>
 
     <header id="topHeader">
-        <nav>
 
+        <nav>
             <span class="logo">Erabiltzailea:
                 <?php echo ($_SESSION["inputemail"]) ? $_SESSION["inputemail"] : "Ez da saioa hasi"; ?>
             </span>
@@ -46,14 +46,16 @@ $txapelketak = $txapelketakQuery->fetchAll();
             </div>
 
             <div class="mainMenu">
+
                 <a href="IndexAdmin.php"><span>Hasiera</span></a>
                 <a href="TaldeakAdmin.php"><span>Taldeak</span></a>
                 <a href="piraguistakAdmin.php"><span>Piraguistak</span></a>
                 <a href="TxapelketakAdmin.php"><span>Txapelketak</span></a>
                 <a href="KlasifikazioaAdmin.php"><span>Klasifikazioa</span></a>
-                <a href="ProfilArrunta.php"><span>Erabiltzaileak</span></a>
+                <a href="erabiltzaileak.php"><span>Erabiltzaileak</span></a>
                 <a href="http://localhost/phpmyadmin/index.php?route=/database/structure&db=piraguismo" target="_blank"><span>DBKS</span></a>
-                <a href="logout.php">Saioa Itxi</a>
+                <a href="../logout.php">Saioa Itxi</a>
+
 
             </div class="mainMenu">
         </nav>
@@ -62,49 +64,56 @@ $txapelketak = $txapelketakQuery->fetchAll();
             <div id="new-taldea-info">
                 <span></span>
                 <table class="styled-table">
-
                     <thead>
                         <tr>
                             <th align="center">Izena</th>
-                            <th>Kokapena</th>
-                            <th>Data Hasi</th>
-                            <th>Data Bukatu</th>
-                            <th>Zailtasun Maila</th>
-                            <th>Modalitatea</th>
+                            <th>Abizena</th>
+                            <th>Id</th>
+                            <th>Email</th>
                         </tr>
                     </thead>
-
                     <tbody>
-                        <?php foreach ($txapelketak as $index => $txapelketa): ?>
+
+                        <!-- Datu baseko erabiltzaile guztiak erakutsi administratzaileak ezik -->
+                        <?php foreach ($erabiltzaileak as $index => $erabiltzaile): ?>
                             <tr>
                                 <td align="center">
-                                    <?php echo $txapelketa["Izena"] ?>
+                                    <?php echo $erabiltzaile["Izena"] ?>
                                 </td>
                                 <td>
-                                    <?php echo $txapelketa["Kokapena"] ?>
+                                    <?php echo $erabiltzaile["Abizena"] ?>
                                 </td>
                                 <td>
-                                    <?php echo $txapelketa["Data_Hasi"] ?>
+                                    <?php echo $erabiltzaile["Id"] ?>
                                 </td>
                                 <td>
-                                    <?php echo $txapelketa["Data_Bukatu"] ?>
-                                </td>
-                                <td>
-                                    <?php echo $txapelketa["Zailtasun_Maila"] ?>
-                                </td>
-                                <td>
-                                    <?php echo $txapelketa["Mota"] ?>
+                                    <?php echo $erabiltzaile["Email"] ?>
                                 </td>
                             </tr>
                         <?php endforeach; ?>
-                    </tbody>
 
+                    </tbody>
                 </table>
             </div>
         </section>
+        <section id="profila">
+            <div id="new-taldea-info">
+                <span></span>
+                <h2>Profila editatu</h2>
+                <form action="erabiltzaileak2.php" method="post">
+                    <div class="Menu">
+                        Erabiltzailearen id-a: <input type="text" name="fid"><br>
+                    </div>
+
+                    <button type="submit" name="action" value="izenaaldatu" class="btn">Izena aldatu</button>
+                    <button type="submit" name="action" value="abizenaaldatu" class="btn">Abizena aldatu</button>
+                    <button type="submit" name="action" value="pasahitzaaldatu" class="btn">Pasahitza aldatu</button>
+                    <button type="submit" name="action" value="ezabatuarrunta" class="btn">Erabiltzailea
+                        ezabatu</button>
+                </form>
+        </section>
 
 </body>
-
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 <script src="ScriptIT.js"></script>
 <script src="./script.js"></script>

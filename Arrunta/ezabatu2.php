@@ -1,15 +1,7 @@
 <?php
 session_start();
-require 'connection.php';
-
-$inputEmail = filter_var($_SESSION["inputemail"], FILTER_SANITIZE_EMAIL);
-
-//Erabiltzaile guztiak lortzen ditugu, administratzaileak izan ezik
-$profilakquery = $conn->prepare("SELECT * FROM erabiltzailea WHERE Email = :inputEmail");
-$profilakquery->bindParam(':inputEmail', $inputEmail, PDO::PARAM_STR);
-$profilakquery->execute();
-$profilakresult = $profilakquery->fetchAll();
-
+require '../connection.php';
+include '../function.php';
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -18,8 +10,8 @@ $profilakresult = $profilakquery->fetchAll();
 
     <meta charset="UTF-8">
     <title>Urpera Piraguismoa</title>
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="./css/tablestyle.css">
+    <link rel="stylesheet" href="../style.css">
+    <link rel="stylesheet" href="../css/tablestyle.css">
 
 </head>
 
@@ -38,8 +30,8 @@ $profilakresult = $profilakquery->fetchAll();
     </head>
 
     <header id="topHeader">
-
         <nav>
+
             <span class="logo">Erabiltzailea:
                 <?php echo ($_SESSION["inputemail"]) ? $_SESSION["inputemail"] : "Ez da saioa hasi"; ?>
             </span>
@@ -55,7 +47,7 @@ $profilakresult = $profilakquery->fetchAll();
                 <a href="piraguistak.php"><span>Piraguistak</span></a>
                 <a href="Txapelketak.php"><span>Txapelketak</span></a>
                 <a href="Klasifikazioa.php"><span>Klasifikazioa</span></a>
-                <a href="logout.php">Saioa Itxi</a>
+                <a href="../logout.php">Saioa Itxi</a>
 
             </div class="mainMenu">
         </nav>
@@ -63,20 +55,37 @@ $profilakresult = $profilakquery->fetchAll();
         <section id="profila">
             <div id="new-taldea-info">
                 <span></span>
-                <h2>Profila editatu</h2>
+                <h2></h2>
 
-                <form method="POST" action="izena2.php">
-                    Erabiltzaile Izena:
-                    <select type="text" name="fizena">
-                        <?php foreach ($profilakresult as $index => $profila): ?>
-                            <option value='<?php echo $profila["Izena"]; ?>'>
-                                <?php echo $profila["Izena"]; ?>
-                            </option>
-                        <?php endforeach; ?>
-                    </select><br>
-                    Izen berria: <input type="text" name="izen_berria"><br>
-                    <input type="submit" />
-                </form>
+                <?php
+                /*MySQL*/
+                $servername = "localhost";
+                $username = "root";
+                $password = "";
+                $dbname = "piraguismo";
+
+                // Create connection
+                $conn = new mysqli($servername, $username, $password, $dbname);
+
+                // Check connection
+                if ($conn->connect_error) {
+                    die("Connection failed: " . $conn->connect_error);
+                }
+                //Formulariotak pasatako datuak lortu
+                $pasahitza = Garbitu($_POST['pasahitz_berria']);
+                $email = $_SESSION["inputemail"];
+
+                //Erabiltzailea ezabatu
+                $Aldaketa = "delete from  erabiltzailea WHERE Email='$email'";
+
+                if (mysqli_query($conn, $Aldaketa)) {
+                    echo "<h2>Erabiltzailea kendu da</h2>";
+                    session_destroy();
+                    header('location: ../index.html');
+                } else {
+                    echo "Error: " . $Aldaketa . "<br>" . mysqli_error($conn);
+                }
+                ?>
 
         </section>
 </body>
