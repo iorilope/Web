@@ -15,6 +15,7 @@ $id = Garbitu($_POST['fid']);
     <title>Urpera Piraguismoa</title>
     <link rel="stylesheet" href="../style.css">
     <link rel="stylesheet" href="../css/tablestyle.css">
+    <link rel="stylesheet" href="../css/formdinamic.css">
 
 </head>
 

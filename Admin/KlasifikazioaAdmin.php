@@ -74,6 +74,7 @@ $Klasifikazioak = $KlasifikazioaQuery->fetchAll();
                             <th>Zailtasun Maila</th>
                             <th>Denbora</th>
                             <th>Mota</th>
+                            <th>Talde Izena</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -101,6 +102,10 @@ $Klasifikazioak = $KlasifikazioaQuery->fetchAll();
                                 </td>
                                 <td>
                                     <?php echo $klasifikazioa["Mota"] ?>
+
+                                </td>
+                                <td>
+                                    <?php echo $klasifikazioa["TaldeaIzena"] ?>
 
                                 </td>
                             </tr>

@@ -47,7 +47,6 @@ include '../function.php';
             <div class="mainMenu">
 
                 <a href="Index_Arrunta.php"><span>Hasiera</span></a>
-                <a href="Egutegia.html"><span>Egutegia</span></a>
                 <a href="Taldeak.php"><span>Taldeak</span></a>
                 <a href="piraguistak.php"><span>Piraguistak</span></a>
                 <a href="Txapelketak.php"><span>Txapelketak</span></a>

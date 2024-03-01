@@ -53,7 +53,6 @@ $Klasifikazioak = $KlasifikazioaQuery->fetchAll();
             <div class="mainMenu">
 
                 <a href="Index_Arrunta.php"><span>Hasiera</span></a>
-                <a href="Egutegia.html"><span>Egutegia</span></a>
                 <a href="Taldeak.php"><span>Taldeak</span></a>
                 <a href="piraguistak.php"><span>Piraguistak</span></a>
                 <a href="Txapelketak.php"><span>Txapelketak</span></a>
@@ -68,6 +67,18 @@ $Klasifikazioak = $KlasifikazioaQuery->fetchAll();
             <div id="new-taldea-info">
                 <span></span>
                 <table class="styled-table">
+                    <thead>
+                        <tr>
+                            <th align="center">Izena</th>
+                            <th>Kokapena</th>
+                            <th>Data Hasi</th>
+                            <th>Data Bukatu</th>
+                            <th>Zailtasun Maila</th>
+                            <th>Denbora</th>
+                            <th>Mota</th>
+                            <th>Talde Izena</th>
+                        </tr>
+                    </thead>
                     <tbody>
 
                         <?php foreach ($Klasifikazioak as $index => $klasifikazioa): ?>
@@ -93,6 +104,10 @@ $Klasifikazioak = $KlasifikazioaQuery->fetchAll();
                                 </td>
                                 <td>
                                     <?php echo $klasifikazioa["Mota"] ?>
+
+                                </td>
+                                <td>
+                                    <?php echo $klasifikazioa["TaldeaIzena"] ?>
 
                                 </td>
                             </tr>
