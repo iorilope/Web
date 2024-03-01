@@ -1,46 +1,40 @@
-# XAMPP bidezko PHP web orria erabiltzeko jarraibideak
+# XAMPP bidezko PHP Web Orrira Sartzea: Jarraibideak 🚀
 
-Ongi etorri PHPn garatutako gure web orrira! Jarraian, XAMPP ingurunea konfiguratzeko eta erabiltzeko jarraibideak emango dizkizugu urratsez urrats, orria zure makinan modu lokalean exekutatzeko.
+Ongi etorri PHPn garatutako zure web orrira! Hemen dituzu XAMPP ingurunea konfiguratzeko eta erabiltzeko jarraibideak, urratsez urrats.
 
-## Aurretiazko betekizunak👁
+## Aurretiazko Betekizunak 👁
 
-Ziurtatu XAMPP instalatuta duzula zure sisteman urrats hauek jarraitu aurretik.
+Ziurtatu XAMPP instalatuta duzula zure sisteman, eta gero jarraitu beheko urratsez.
 
-## Konfiguraziorako urratsak⚙
+## Konfiguraziorako Urratsak ⚙
 
-1. **Iturburu-kodea deskargatzea**
+1. **Iturburu-kodea Deskargatzea**
+    
+    - Klonatu edo deskargatu web orriaren gordailua GitHub-etik.
+    - [https://github.com/iorilope/Web](https://chat.openai.com/c/39013c7d-5bfb-461b-abc0-3b024dbfa909)
+2. **Fitxategien Kokapena**
+    
+    - Deskargatutako fitxategiak instalatu XAMPP-eko `htdocs` direktorioan. Adibidez, Windows sistematan `C:\xampp\htdocs` edo Linux-en `/opt/lampp/htdocs`.
+3. **XAMPPren Hasiera**
+    
+    - Hasi XAMPP eta aktibatu Apache eta MySQL zerbitzuak.
+4. **Datu Basea**
+    
+    - Web orria datu-base bat erabiltzen badu, sortu datu-basea MySQL-en eta inportatu taulak eta datuak. Administratu MySQL erabiliz edo phpMyAdmin erabiliz.
+5. **Konexio-Fitxategia Konfiguratzea**
+    
+    - Web orriak datu-basera konektatzeko fitxategia badu, ziurtatu konexio-xehetasunak (datu-basea, erabiltzailea, pasahitza, host-a) zure beharretara egokituta daudela.
+6. **Orrialdera Sartu**
+    
+    - Ireki zure web nabigatzailea eta bisitatu http://localhost/gordailua. Aldatu URLa zure proiektuaren egituraren arabera.
+7. **Aztertu Orrialdea**
+    
+    - Nabigatu web orrian eta egiten ari diren ekintzak egiaztatu. Ziurtatu dena espero bezala dabilela.
 
-   - Klonatu edo deskargatu web orriaren gordailua GitHub-etik.
-   - [https://github.com/iorilope/Web]()
+## Arazo Arruntak ❗
 
-2. **Fitxategien kokapena**
+- **Erabiltzen Ari Garen Portua:** 80. portua erabiltzen baduzu arazoak izan ditzakezu. XAMPP-ren konfigurazioan Apacheko portua alda dezakezu.
+- **Artxibo-Baimenak:**  Ziurtatu fitxategiek eta direktorioek Apachek irakurtzeko baimen egokiak dituztela.
+- **Datu-Basera Konektatzeko Erroreak:** Egiaztatu datu-basera konektatzeko konfigurazioak zure fitxategian.
 
-   - Jarri deskargatutako fitxategiak zure XAMPP instalazioaren `htdocs￮ direktorioan. Oro har, ibilbidea `C:\xampp\htdocs, Windows sistemetan edo Linux sistemetan.
-
-3. **XAMPPren hasiera**
-
-   - Hasi XAMPP eta ziurtatu Apache eta MySQL zerbitzuak aktibo daudela.
-
-4. Datu Basea
-
-   - Web orriak datu-base bat erabiltzen badu, datu-base bat sortzen du MySQLn eta beharrezko taulak eta datuak inportatzen ditu. MySQLren administrazio-interfazearen bidez egin dezakezu hori, edo phpMyAdmin bezalako tresnak erabiliz.
-
-5. **Konexio-fitxategia konfiguratzea**
-
-   - Web orriak datu-basera konektatzeko fitxategia badu, ziurtatu konexio-xehetasunak (datu-basearen izena, erabiltzailea, pasahitza, host-a) behar bezala konfiguratuta daudela.
-
-6. **Orrialdera sartu**
-
-   - Ireki zure web nabigatzailea eta bisitatu http://localhost/repositorioa. Doitu URLa zure proiektuaren egituraren arabera.
-
-7. **Aztertu orrialdea**
-
-   - Nabigatu web orrian eta egin beharrezko ekintzak. Ziurtatu dena espero bezala dabilela.
-
-## Arazo arruntak❗
-
-- **Erabiltzen ari garen portua:** 80. atakarekin arazoak aurkitzen badituzu, baliteke beste programa bat erabiltzen ari izatea. Apacheko portua alda dezakezu XAMPPren konfigurazioan.
-- **Artxibo-baimenak:**  Ziurtatu fitxategiek eta direktorioek Apachek irakurtzeko baimen egokiak dituztela.
-- **Datu-basera konektatzeko erroreak:** Egiaztatu datu-basera konektatzeko konfigurazioak zure fitxategian.
-
-Urrats hauek jarraituz, PHP web orria zure makinan exekutatu ahal izango duzu XAMPP erabiliz. Gozatu zure inguruan tokiko garapena esploratzen eta garatzen!
+Urrats hauek jarraituz, PHP web orria zure makinan exekutatu ahal izango duzu XAMPP erabiliz. Esploratu eta garatu zure inguruan tokiko garapena! 🌐💻
