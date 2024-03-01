@@ -8,10 +8,10 @@ session_start();
 
     <meta charset="UTF-8">
     <title>Urpera Piraguismoa</title>
-    <link rel="stylesheet" href="../style.css">
+    <link rel="stylesheet" href="../Public/style.css">
     <?php
 
-    require '../connection.php'; ?>
+    require '../Public/connection.php'; ?>
 </head>
 
 <body>
@@ -47,7 +47,7 @@ session_start();
                 <a href="Txapelketak.php"><span>Txapelketak</span></a>
                 <a href="Klasifikazioa.php"><span>Klasifikazioa</span></a>
                 <a href="ProfilArrunta.php"><span>Profila</span></a>
-                <a href="../logout.php">Saioa Itxi</a>
+                <a href="../Public/logout.php">Saioa Itxi</a>
 
             </div class="mainMenu">
         </nav>
@@ -174,9 +174,7 @@ session_start();
 
     </footer>
 
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-    <script src="ScriptIT.js"></script>
-    <script src="./script.js"></script>
+
 </body>
 
 </html>

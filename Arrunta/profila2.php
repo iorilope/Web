@@ -1,8 +1,8 @@
 <?php
 session_start();
-require '../connection.php';
+require '../Public/connection.php';
 
-include '../function.php';
+include '../Public/function.php';
 
 
 ?>
@@ -13,7 +13,7 @@ include '../function.php';
 
     <meta charset="UTF-8">
     <title>Urpera Piraguismoa</title>
-    <link rel="stylesheet" href="../style.css">
+    <link rel="stylesheet" href="../Public/style.css">
     <link rel="stylesheet" href="../css/tablestyle.css">
     <link rel="stylesheet" href="../css/profila.css">
     <link rel="stylesheet" href="../css/formdinamic.css">
@@ -52,7 +52,7 @@ include '../function.php';
                 <a href="Txapelketak.php"><span>Txapelketak</span></a>
                 <a href="Klasifikazioa.php"><span>Klasifikazioa</span></a>
                 <a href="ProfilArrunta.php"><span>Profila</span></a>
-                <a href="../logout.php">Saioa Itxi</a>
+                <a href="../Public/logout.php">Saioa Itxi</a>
 
             </div class="mainMenu">
         </nav>
@@ -126,8 +126,6 @@ include '../function.php';
         window.location.href = 'Index_Arrunta.php';
     }
 </script>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-<script src="ScriptIT.js"></script>
-<script src="./script.js"></script>
+
 
 </html>

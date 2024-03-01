@@ -24,10 +24,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $_SESSION["inputemail"] = $email;
         if ($userType == "Admin") {
 
-            header("Location: ./Admin/indexAdmin.php");
+            header("Location: ../Admin/indexAdmin.php");
         } elseif ($userType == "Arrunta") {
 
-            header("Location: ./Arrunta/Index_Arrunta.php");
+            header("Location: ../Arrunta/Index_Arrunta.php");
         } else {
             
             echo "Erabiltzaile mota ezezaguna";

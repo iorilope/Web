@@ -1,6 +1,6 @@
 <?php
 session_start();
-require '../connection.php';
+require '../Public/connection.php';
 
 //kontsulta honen Helburua  "txapelketa" taula osoa , modalitate mota, parte hartzeko denbora eta 
 //taldearen izena barne. Ezkerreko batasunek "txapelketako" erregistroak sartzeko aukera ematen dute, 
@@ -21,7 +21,7 @@ $Klasifikazioak = $KlasifikazioaQuery->fetchAll();
 
     <meta charset="UTF-8">
     <title>Urpera Piraguismoa</title>
-    <link rel="stylesheet" href="../style.css">
+    <link rel="stylesheet" href="../Public/style.css">
     <link rel="stylesheet" href="../css/tablestyle.css">
 
 </head>
@@ -58,7 +58,7 @@ $Klasifikazioak = $KlasifikazioaQuery->fetchAll();
                 <a href="Txapelketak.php"><span>Txapelketak</span></a>
                 <a href="Klasifikazioa.php"><span>Klasifikazioa</span></a>
                 <a href="ProfilArrunta.php"><span>Profila</span></a>
-                <a href="../logout.php">Saioa Itxi</a>
+                <a href="../Public/logout.php">Saioa Itxi</a>
 
             </div class="mainMenu">
         </nav>
@@ -119,8 +119,5 @@ $Klasifikazioak = $KlasifikazioaQuery->fetchAll();
         </section>
 
 </body>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-<script src="ScriptIT.js"></script>
-<script src="./script.js"></script>
 
 </html>

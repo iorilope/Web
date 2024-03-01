@@ -1,7 +1,7 @@
 <?php
 session_start();
-require '../connection.php';
-include '../function.php';
+require '../Public/connection.php';
+include '../Public/function.php';
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -10,7 +10,7 @@ include '../function.php';
 
     <meta charset="UTF-8">
     <title>Urpera Piraguismoa</title>
-    <link rel="stylesheet" href="../style.css">
+    <link rel="stylesheet" href="../Public/style.css">
     <link rel="stylesheet" href="../css/tablestyle.css">
 
 </head>
@@ -46,7 +46,7 @@ include '../function.php';
                 <a href="piraguistak.php"><span>Piraguistak</span></a>
                 <a href="Txapelketak.php"><span>Txapelketak</span></a>
                 <a href="Klasifikazioa.php"><span>Klasifikazioa</span></a>
-                <a href="../logout.php">Saioa Itxi</a>
+                <a href="../Public/logout.php">Saioa Itxi</a>
 
             </div class="mainMenu">
         </nav>

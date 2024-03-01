@@ -1,7 +1,7 @@
 <?php
 session_start();
-require '../connection.php';
-include '../function.php';
+require '../Public/connection.php';
+include '../Public/function.php';
 
 ?>
 <!DOCTYPE html>
@@ -11,7 +11,7 @@ include '../function.php';
 
     <meta charset="UTF-8">
     <title>Urpera Piraguismoa</title>
-    <link rel="stylesheet" href="../style.css">
+    <link rel="stylesheet" href="../Public/style.css">
     <link rel="stylesheet" href="../css/tablestyle.css">
 
 </head>
@@ -49,8 +49,9 @@ include '../function.php';
                 <a href="TxapelketakAdmin.php"><span>Txapelketak</span></a>
                 <a href="KlasifikazioaAdmin.php"><span>Klasifikazioa</span></a>
                 <a href="erabiltzaileak.php"><span>Erabiltzaileak</span></a>
-                <a href="http://localhost/phpmyadmin/index.php?route=/database/structure&db=piraguismo" target="_blank"><span>DBKS</span></a>
-                <a href="../logout.php">Saioa Itxi</a>
+                <a href="http://localhost/phpmyadmin/index.php?route=/database/structure&db=piraguismo"
+                    target="_blank"><span>DBKS</span></a>
+                <a href="../Public/logout.php">Saioa Itxi</a>
 
             </div class="mainMenu">
         </nav>

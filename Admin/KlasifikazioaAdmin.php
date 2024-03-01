@@ -1,6 +1,6 @@
 <?php
 session_start();
-require '../connection.php';
+require '../Public/connection.php';
 
 $KlasifikazioaQuery = $conn->prepare("SELECT txapelketa.*,modalitatea.Mota, parte_hartu.Denbora AS ParteHartuDenbora, taldea.Izena AS TaldeaIzena
                                     FROM txapelketa
@@ -18,7 +18,7 @@ $Klasifikazioak = $KlasifikazioaQuery->fetchAll();
 
     <meta charset="UTF-8">
     <title>Urpera Piraguismoa</title>
-    <link rel="stylesheet" href="../style.css">
+    <link rel="stylesheet" href="../Public/style.css">
     <link rel="stylesheet" href="../css/tablestyle.css">
 
 </head>
@@ -55,8 +55,9 @@ $Klasifikazioak = $KlasifikazioaQuery->fetchAll();
                 <a href="TxapelketakAdmin.php"><span>Txapelketak</span></a>
                 <a href="KlasifikazioaAdmin.php"><span>Klasifikazioa</span></a>
                 <a href="erabiltzaileak.php"><span>Erabiltzaileak</span></a>
-                <a href="http://localhost/phpmyadmin/index.php?route=/database/structure&db=piraguismo" target="_blank"><span>DBKS</span></a>
-                <a href="../logout.php">Saioa Itxi</a>
+                <a href="http://localhost/phpmyadmin/index.php?route=/database/structure&db=piraguismo"
+                    target="_blank"><span>DBKS</span></a>
+                <a href="../Public/logout.php">Saioa Itxi</a>
 
             </div class="mainMenu">
         </nav>
@@ -117,8 +118,6 @@ $Klasifikazioak = $KlasifikazioaQuery->fetchAll();
         </section>
 
 </body>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-<script src="ScriptIT.js"></script>
-<script src="./script.js"></script>
+
 
 </html>

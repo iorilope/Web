@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <?php
 session_start();
-require '../connection.php';
-include '../function.php';
+require '../Public/connection.php';
+include '../Public/function.php';
 
 // Taldeak KONTSULTATU
 $taldekodeQuery = $conn->prepare("SELECT DISTINCT Taldea_Kodea FROM piraguista");
@@ -24,7 +24,7 @@ $piraguistak = $piraguistakQuery->fetchAll();
 
     <meta charset="UTF-8">
     <title>Urpera Piraguismoa</title>
-    <link rel="stylesheet" href="../style.css">
+    <link rel="stylesheet" href="../Public/style.css">
     <link rel="stylesheet" href="../css/tablestyle.css">
 
 </head>
@@ -62,7 +62,7 @@ $piraguistak = $piraguistakQuery->fetchAll();
                 <a href="Txapelketak.php"><span>Txapelketak</span></a>
                 <a href="Klasifikazioa.php"><span>Klasifikazioa</span></a>
                 <a href="ProfilArrunta.php"><span>Profila</span></a>
-                <a href="../logout.php">Saioa Itxi</a>
+                <a href="../Public/logout.php">Saioa Itxi</a>
 
             </div class="mainMenu">
         </nav>
@@ -135,8 +135,6 @@ $piraguistak = $piraguistakQuery->fetchAll();
 
         </footer>
 </body>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-<script src="ScriptIT.js"></script>
-<script src="./script.js"></script>
+
 
 </html>
