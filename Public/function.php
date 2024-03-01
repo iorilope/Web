@@ -1,9 +1,9 @@
 
 <?php
-function Garbitu($datos) {
-    $datos = trim($datos); 
-    $datos = stripslashes($datos); 
-    $datos = htmlspecialchars($datos); 
-    return $datos;
+function Garbitu($datuak) {
+    $datuak = trim($datuak); 
+    $datuak = stripslashes($datuak); 
+    $datuak = htmlspecialchars($datuak); 
+    return $datuak;
 }
 ?>
