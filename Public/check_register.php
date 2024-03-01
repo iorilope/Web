@@ -7,7 +7,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     //Formulariotikan erregistroko datuak pasa
     $izena = Garbitu($_POST["fizena"]);
     $pasahitza = Garbitu($_POST["fpasahitza"]);
-    $abizena =Garbitu($_POST["fabizena"]);
+    $abizena = Garbitu($_POST["fabizena"]);
     $email = Garbitu($_POST["femail"]);
 
     require 'connection.php';

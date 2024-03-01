@@ -1,4 +1,3 @@
-
 <!-- Datu basearekin konexioa sortu -->
 <?php
 try {

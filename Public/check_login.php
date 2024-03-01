@@ -29,7 +29,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
             header("Location: ../Arrunta/Index_Arrunta.php");
         } else {
-            
+
             echo "Erabiltzaile mota ezezaguna";
         }
     } else {
