@@ -11,7 +11,7 @@ Ziurtatu XAMPP instalatuta duzula zure sisteman, eta gero jarraitu beheko urrats
 1. **Iturburu-kodea Deskargatzea**
     
     - Klonatu edo deskargatu web orriaren gordailua GitHub-etik.
-    - [https://github.com/iorilope/Web](https://chat.openai.com/c/39013c7d-5bfb-461b-abc0-3b024dbfa909)
+    - [https://github.com/iorilope/Web]([https://chat.openai.com/c/39013c7d-5bfb-461b-abc0-3b024dbfa909](https://github.com/iorilope/Web))
 2. **Fitxategien Kokapena**
     
     - Deskargatutako fitxategiak instalatu XAMPP-eko `htdocs` direktorioan. Adibidez, Windows sistematan `C:\xampp\htdocs` edo Linux-en `/opt/lampp/htdocs`.
